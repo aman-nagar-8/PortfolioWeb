@@ -14,7 +14,7 @@ const Navbar = () => {
     { name: "SignUp", link: "/signup" },
   ];
   return (
-    <div className="bg-black p-1.5  flex justify-around items-center sticky top-0">
+    <div className="bg-black/70 border-b-[1px] border-b-zinc-700 p-1.5 z-50 flex justify-around items-center sticky top-0">
       <div className="font-bold text-2xl">Instagram</div>
       <div className="flex" >
       <div className="hidden md:flex " >
