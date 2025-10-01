@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Project_cards = ({pro , data}) => {
   return (
-     <div className={`border-[1px] absolute bg-black border-zinc-600 ${pro.wid} ${pro.z} ${pro.hei} ${pro.rot} ${pro.bott} ${pro.righ} mt-5 rounded-[10px] cursor-pointer`} >
+     <div className={`border-[1px] absolute bg-black hover:opacity-0 border-zinc-600 ${pro.wid} ${pro.z} ${pro.hei} ${pro.rot} ${pro.bott} ${pro.righ}  rounded-[10px] cursor-pointer`} >
               <div className={`${pro.wid} h-[220px] relative overflow-hidden`} >
                 <Image
                   fill
