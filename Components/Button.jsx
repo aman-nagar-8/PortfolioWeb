@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+
 
 const Button = ({title , back_ground_color, btn_width}) => {
   return (
