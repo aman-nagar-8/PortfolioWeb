@@ -18,7 +18,7 @@ const Skills = () => {
   return (
     <div className='mb-20' >
        <h2 className='text-2xl font-bold text-center m-5' >Skills</h2>
-       <div className='flex w-[800px] justify-center m-auto  gap-7 flex-wrap' >
+       <div className='flex w-[100vw] md:w-[800px] justify-center m-auto  gap-7 flex-wrap' >
        {images.map((img, index) => (
         <div key={index}  className='flex flex-col items-center gap-2' >
         <img width={48} height={48}  src={img.src} alt={img.alt} />

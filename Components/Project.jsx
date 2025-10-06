@@ -4,6 +4,13 @@ import Project_cards from "./Project_cards";
 import Project_det_card from "./Project_det_card";
 
 const Project = () => {
+  const check_md = () => {
+    if (window.innerWidth >= 768) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   const Allprojects = [
     {
       img: "/project-2.png",
@@ -23,7 +30,7 @@ const Project = () => {
   ];
   const Allproperties = [
     {
-      wid: "w-[300px]",
+      wid: "w-[320px]",
       hei: "h-[320px]",
       righ: "right-0",
       bott: "bottom-0",
@@ -50,7 +57,7 @@ const Project = () => {
   return (
     <div className="border-b-[1px] border-zinc-700 ">
       <h1 className="text-center font-bold text-2xl mt-5">Projects</h1>
-      <div className="flex  w-[1500px]  m-auto justify-center gap-7  flex-wrap">
+      <div className="flex flex-col-reverse md:flex-row w-[100vw] md:w-[1500px]  m-auto justify-center gap-7  flex-wrap">
         <Project_det_card/>
         <div className="relative h-[450px] w-[500px]">
           {Allprojects.map((project, index) => (

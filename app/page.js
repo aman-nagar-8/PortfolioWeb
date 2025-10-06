@@ -1,18 +1,18 @@
 import Image from "next/image";
-import Navbar from "@/Components/navbar";
-import About from "@/Components/About";
-import Projects from "@/Components/Projects2";
-import Skills from "@/Components/Skills";
-import Footer from "@/Components/Footer";
-import Project from "@/Components/Project";
+import Navbar from "@/components/navbar";
+import About from "@/components/About";
+
+import Skills from "@/components/Skills";
+import Footer from "@/components/Footer";
+import Project from "@/components/Project";
+import Blogs from "@/components/Blogs";
 export default function Home() {
   return (
     <>
-    <Navbar/>
     <About/>
     <Project/>
     <Skills/>
-    <Footer/>
+    <Blogs/>
     </>
   );
 }
