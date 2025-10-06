@@ -1,16 +1,19 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Project_cards from "./Project_cards";
 import Project_det_card from "./Project_det_card";
+import { useEffect, useState } from "react";
 
 const Project = () => {
-  const check_md = () => {
+  const [md, set_md] = useState(false);
+  useEffect(() => {
     if (window.innerWidth >= 768) {
-      return true;
-    } else {
-      return false;
+      set_md(true);
+    } else{
+      set_md(false);
     }
-  }
+  }, []);
   const Allprojects = [
     {
       img: "/project-2.png",
@@ -30,26 +33,26 @@ const Project = () => {
   ];
   const Allproperties = [
     {
-      wid: "w-[320px]",
-      hei: "h-[320px]",
+      wid: md?"w-[300px]":"w-[200px]",
+      hei: md?"h-[320px]":"h-[250px]",
       righ: "right-0",
-      bott: "bottom-0",
+      bott: md?"bottom-0":"bottom-10",
       rot: "rotate-[-0deg]",
       z: "z-30",
     },
     {
-      wid: "w-[320px]",
-      hei: "h-[320px]",
+      wid: md?"w-[320px]":"w-[200px]",
+      hei: md?"h-[320px]":"h-[250px]",
       righ: "right-20",
-      bott: "bottom-10",
+      bott: md?"bottom-10":"bottom-20",
       rot: "rotate-[-3deg]",
       z: "z-20",
     },
     {
-      wid: "w-[320px]",
-      hei: "h-[320px]",
+      wid: md?"w-[320px]":"w-[200px]",
+      hei: md?"h-[320px]":"h-[250px]",
       righ: "right-40",
-      bott: "bottom-20",
+      bott: md?"bottom-20":"bottom-30",
       rot: "rotate-[-5deg]",
       z: "z-10",
     },
@@ -57,9 +60,9 @@ const Project = () => {
   return (
     <div className="border-b-[1px] border-zinc-700 ">
       <h1 className="text-center font-bold text-2xl mt-5">Projects</h1>
-      <div className="flex flex-col-reverse md:flex-row w-[100vw] md:w-[1500px]  m-auto justify-center gap-7  flex-wrap">
+      <div className="flex flex-col-reverse md:flex-row w-[100vw] md:w-[1500px]  md:m-auto justify-center gap-7  flex-wrap">
         <Project_det_card/>
-        <div className="relative h-[450px] w-[500px]">
+        <div className="relative h-[400px]  md:h-[450px] w-[100vw] mt-10 md:mt-0 md:w-[500px]">
           {Allprojects.map((project, index) => (
             <Project_cards
               key={index}

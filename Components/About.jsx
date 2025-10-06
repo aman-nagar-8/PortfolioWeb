@@ -1,12 +1,22 @@
+"use client"
 import React from 'react'
 import Account_links from './Account_links'
 import { CiLocationOn } from "react-icons/ci"
 import { MdOutlinePhone } from "react-icons/md";
 import Button from './Button'
 import Image from 'next/image'
+import { useEffect, useState} from 'react';
 
 
 const About = () => {
+    const [md , setMd] = React.useState(false);
+    useEffect(() => {
+        if(window.innerWidth >= 768){
+            setMd(true)
+        } else {
+            setMd(false)
+        }
+    }, [])
   return (
     <div className='border-b-[1px] border-zinc-700 '  >
     <div className='md:h-[92vh] w-[100vw] md:w-[1100px] m-auto flex flex-col-reverse md:flex-row justify-between border-zinc-700'>
@@ -32,8 +42,8 @@ const About = () => {
                 </div>
                 </div>
             </div>
-            <div className='ml-15 mt-8 mb-5' >
-                <Account_links w={"40px"} h={"30px"} />
+            <div className='ml-5 mt-2 md:ml-15 md:mt-8 mb-5' >
+                <Account_links w={md?"40px":"28px"} h={md?"30px":"22px"} />
             </div>
         </div>
         <div className='md:h-[92vh] w-[390px] flex mt-10 md:mt-40 items-center flex-col' >

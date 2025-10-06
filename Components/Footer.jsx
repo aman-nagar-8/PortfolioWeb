@@ -23,11 +23,11 @@ const Footer = () => {
 
   return (
     <div className="border-t-[1px]  border-zinc-700">
-      <div className="w-[100vw] md:w-[1100px] m-auto h-[300px]  pt-10">
-        <div className="flex gap-5 md:gap-20">
-          <div>
-            <div>
-              <Image width={150} height={40} src={"/logo-2.png"} alt="Logo" />
+      <div className="w-[100vw] md:w-[1100px] m-auto h-[300px] p-2.5 md:pt-10">
+        <div className="grid grid-cols-3 md:flex gap-2.5 md:gap-20">
+          <div className="col-span-3" >
+            <div className="w-30 h-8 md:w-37.5 md:h-10 relative" >
+              <Image fill src={"/logo-2.png"} alt="Logo" />
             </div>
           </div>
           <div>
@@ -36,7 +36,7 @@ const Footer = () => {
               {navLinks.map((link, index) => (
                 <div
                   key={index}
-                  className="text-zinc-500 m-2 hover:text-zinc-200"
+                  className="text-zinc-500 text-[13px] md:text-[15px] m-1.5 md:m-2 hover:text-zinc-200"
                 >
                   <Link href={link.href}>{link.name}</Link>
                 </div>
@@ -49,7 +49,7 @@ const Footer = () => {
               {CompanyLinks.map((link, index) => (
                 <div
                   key={index}
-                  className="text-zinc-500 m-2 hover:text-zinc-200"
+                  className="text-zinc-500 text-[13px] md:text-[15px] m-1.5 md:m-2 hover:text-zinc-200"
                 >
                   <Link href={link.href}>{link.name}</Link>
                 </div>
@@ -59,13 +59,13 @@ const Footer = () => {
          
           <div>
             <h3 className="font-bold text-zinc-400 text-sm">Contact</h3>
-            <p className="text-zinc-200 text-sm m-1.5">Aman@gmail.com</p>
-            <p className="text-zinc-200 text-sm m-1.5">+91 1234567890</p>
-            <p className="text-zinc-200 text-sm m-1.5 ">Indore , MP</p>
+            <p className="text-zinc-200 text-[13px] md:text-sm m-1.5">Aman@gmail.com</p>
+            <p className="text-zinc-200 text-[13px] md:text-sm m-1.5">+91 1234567890</p>
+            <p className="text-zinc-200 text-[13px] md:text-sm m-1.5 ">Indore , MP</p>
           </div>
-          <div>
+          {/* <div>
             <Dark_Mode/>
-          </div>
+          </div> */}
         </div>
         <div className="h-[50px] mt-10">
           <Account_links w={"20px"} h={"20px"} />
