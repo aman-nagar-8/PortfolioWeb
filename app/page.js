@@ -1,11 +1,11 @@
 
 
-import About from "@/components/About.jsx";
+import About from "@/component/About.jsx";
 
-import Skills from "@/components/Skills.jsx";
+import Skills from "@/component/Skills.jsx";
 
-import Project from "../components/Project.jsx";
-import Blogs from "../components/Blogs.jsx";
+import Project from "../component/Project.jsx";
+import Blogs from "../component/Blogs.jsx";
 export default function Home() {
   return (
     <>
