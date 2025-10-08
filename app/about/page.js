@@ -14,15 +14,12 @@ const page = () => {
           <div className="md:h-[92vh] w-[100vw] md:w-[700px] flex flex-col">
             <div>
               <h1 className="font-bold text-[25px] md:text-[40px] mt-10 md:mt-35 mb-5 ml-5">
-                Hi ,I'm Aman
+                {"Hi ,I'm Aman"}
               </h1>
             </div>
             <div className="ml-5">
               <p className="font-thin text-[14px] md:text-1xl text-zinc-400">
-                A Computer Science Engineering student from RGPV with a strong
-                interest in full-stack development and AI-based problem solving.
-                I enjoy creating real-world tech solutions and continuously
-                learning new technologies.
+               {" A Computer Science Engineering student from RGPV with a strong interest in full-stack development and AI-based problem solving.I enjoy creating real-world tech solutions and continuously learning new technologies."}
               </p>
             </div>
             <div className="flex justify-end mr-10 mt-2"></div>
