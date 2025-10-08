@@ -19,7 +19,6 @@ const page = () => {
             </div>
             <div className="ml-5">
               <p className="font-thin text-[14px] md:text-1xl text-zinc-400">
-                {" "}
                 A Computer Science Engineering student from RGPV with a strong
                 interest in full-stack development and AI-based problem solving.
                 I enjoy creating real-world tech solutions and continuously
