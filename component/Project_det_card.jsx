@@ -12,7 +12,7 @@ const Project_det_card = () => {
         <div className="w-[120px] h-[100px] md:w-[250px] md:h-[150px] relative">
           <Image
             fill
-            src={"/project-1-all/1.png"}
+            src={"/Project-1-all/1.png"}
             className="inline rounded-[5px] w-62.5"
             alt="4"
           />
@@ -20,7 +20,7 @@ const Project_det_card = () => {
         <div className="w-[120px] h-[100px] md:w-[250px] md:h-[150px] relative" >
           <Image
             fill
-            src={"/project-1-all/2.png"}
+            src={"/Project-1-all/2.png"}
             alt="1"
             className="rounded-[5px]"
           />
@@ -28,7 +28,7 @@ const Project_det_card = () => {
         <div className="w-[80px] h-[100px] md:w-[150px] md:h-[150px] relative" >
           <Image
            fill
-            src={"/project-1-all/7.png"}
+            src={"/Project-1-all/7.png"}
             alt="1"
             className="rounded-[5px]"
           />
@@ -36,7 +36,7 @@ const Project_det_card = () => {
         <div className="w-[120px] h-[100px] md:w-[250px] md:h-[150px] relative" >
           <Image
             fill
-            src={"/project-1-all/9.png"}
+            src={"/Project-1-all/9.png"}
             alt="2"
             className="rounded-[5px]"
           />
@@ -44,7 +44,7 @@ const Project_det_card = () => {
         <div className=" w-[58px] h-[50px] md:w-[120px] md:h-[100px] relative overflow-hidden ">
           <Image
             fill
-            src={"/project-1-all/4.png"}
+            src={"/Project-1-all/4.png"}
             alt="3"
             className="object-cover object-center rounded-[5px]"
           />
@@ -52,7 +52,7 @@ const Project_det_card = () => {
         <div className="w-[58px] h-[50px] md:w-[120px] relative md:h-[100px] overflow-hidden">
           <Image
             fill
-            src={"/project-1-all/5.png"}
+            src={"/Project-1-all/5.png"}
             alt="3"
             className="object-cover object-center rounded-[5px]"
           />
@@ -60,7 +60,7 @@ const Project_det_card = () => {
         <div className="w-[80px] h-[100px] md:w-[150px] relative md:h-[166px] overflow-hidden">
           <Image
             fill
-            src={"/project-1-all/10.png"}
+            src={"/Project-1-all/10.png"}
             alt="3"
             className="object-cover rounded-[5px]"
           />

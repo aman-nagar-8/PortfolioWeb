@@ -7,8 +7,14 @@ import Image from "next/image";
 import Logo_action from "./logo_action";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { FaHome } from "react-icons/fa";
+import { GoProject } from "react-icons/go";
 
 const Navbar = () => {
+  useEffect(() => {
+     
+  } , [])
   const pathname = usePathname();
   const [logo, set_logo] = useState(false);
   const logo_action = () => {
@@ -79,7 +85,7 @@ const Navbar = () => {
       </div>
       <div className="relative w-full" >
         <div
-          className={`transition-all overflow-hidden  duration-500 ease-in-out fixed top-0 left-0 z-40 w-[100vw]  bg-zinc-900/80 ${
+          className={`transition-all overflow-hidden  duration-500 ease-in-out fixed top-0 left-0 z-40 w-[100vw]  bg-zinc-900/97 ${
             nav_window ? " h-0 -translate-y-10 "  : "h-60  translate-y-10"
           }`}
         >
@@ -97,6 +103,13 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      {/* <div className="md:hidden w-[100vw] h-15 bg-zinc-700 fixed bottom-0 z-50 overflow-hidden h-f " >
+        <div className="flex gap-3" >
+            <FaHome className="w-7 h-7" />
+            <GoProject className="w-7 h-7" />
+        </div>
+
+      </div> */}
     </>
   );
 };
