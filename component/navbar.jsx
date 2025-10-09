@@ -49,7 +49,7 @@ const Navbar = () => {
               <Link
                 href={link.link}
                 key={index}
-                className="m-2 text-zinc-400 font-light hover:text-white"
+                className={` ${pathname === link.link ?"text-white ":"text-zinc-400"} m-2 font-light hover:text-white`}
               >
                 {link.name}
               </Link>
