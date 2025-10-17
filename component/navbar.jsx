@@ -46,7 +46,7 @@ const Navbar = () => {
   ];
   return (
     <>
-      <div className={`bg-white/80 dark:bg-black/80 w-[100vw] border-b-[1px] border-b-zinc-300 dark:border-b-zinc-700  z-50 flex md:justify-around items-center sticky top-0 ${nav_window?"":"bg-zinc/900"}`}>
+      <div className={`bg-white/80 dark:bg-black/80 w-[100vw] md:w-[99vw] border-b-[1px] border-b-zinc-300 dark:border-b-zinc-700  z-50 flex md:justify-around items-center sticky top-0 ${nav_window?"":"bg-zinc/900"}`}>
         <div
           onClick={logo_action}
           className="cursor-pointer w-30 h-10  md:w-37.5 md:h-10  relative"
@@ -96,7 +96,7 @@ const Navbar = () => {
       </div>
       <div className="relative w-full" >
         <div
-          className={`transition-all overflow-hidden  duration-500 ease-in-out fixed top-0 left-0 z-40 w-[100vw]  bg-zinc-900/97 ${
+          className={`transition-all overflow-hidden  duration-500 ease-in-out fixed top-0 left-0 z-40 w-[100vw] bg-zinc-300/97 dark:bg-zinc-900/97 ${
             nav_window ? " h-0 -translate-y-10 "  : "h-60  translate-y-10"
           }`}
         >
@@ -105,7 +105,7 @@ const Navbar = () => {
               <div key={index}  className={` m-auto my-1 p-1 px-5 w-[90vw] text-end `} >
               <Link
                 href={link.link}
-                className={`${pathname === link.link ?"text-white ":"text-zinc-400"}  font-light`}
+                className={`${pathname === link.link ?"text-zinc-700 dark:text-white font-bold":"text-zinc-600 dark:text-zinc-400"} `}
               >
                 {link.name}
               </Link>
