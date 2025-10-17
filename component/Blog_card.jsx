@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Blog_card = () => {
   return (
-    <div className='w-[200px] h-[300px] md:w-[350px] md:h-[400px]  rounded-2xl bg-stone-800 p-2.5 md:p-5 cursor-pointer' >
+    <div className='w-[200px] h-[300px] md:w-[350px] md:h-[400px]  rounded-2xl bg-zinc-200 dark:bg-stone-800 p-2.5 md:p-5 cursor-pointer' >
         <div className='w-[180px] h-[180px] md:w-[310px] md:h-[280px] relative' >
             <Image fill src={"/blog-1.png"} alt='blog-1' className='rounded-[7px]'/>
         </div>

@@ -2,7 +2,7 @@
 import React from "react";
 import Button from "./Button";
 import Link from "next/link";
-import { useState } from "react";
+import { useState , useRef} from "react";
 import Image from "next/image";
 import Logo_action from "./logo_action";
 import { IoReorderThreeOutline } from "react-icons/io5";
@@ -12,9 +12,7 @@ import { FaHome } from "react-icons/fa";
 import { GoProject } from "react-icons/go";
 
 const Navbar = () => {
-  useEffect(() => {
-     
-  } , [])
+  const popupRef = useRef(null);
   const pathname = usePathname();
   const [logo, set_logo] = useState(false);
   const logo_action = () => {
@@ -25,6 +23,19 @@ const Navbar = () => {
   function mobile_navbar_action() {
     set_nav_window(!nav_window);
   } 
+//  useEffect(() => {
+//      const handleclick = (event) => {
+//        if (popupRef.current && !popupRef.current.contains(event.target)) {
+//         set_nav_window(true);
+//       }
+//      }
+//    if(!nav_window){
+//       document.addEventListener("click", handleclick)
+//    }
+//    return () => {
+//     document.removeEventListener("click", handleclick)
+//    }
+//   } , [!nav_window])
 
   const UrlLinkes = [
     { name: "Home", link: "/" ,  },
@@ -35,13 +46,13 @@ const Navbar = () => {
   ];
   return (
     <>
-      <div className={`bg-black/80 w-[100vw] border-b-[1px] border-b-zinc-700  z-50 flex md:justify-around items-center sticky top-0 ${nav_window?"":"bg-zinc/900"}`}>
+      <div className={`bg-white/80 dark:bg-black/80 w-[100vw] border-b-[1px] border-b-zinc-300 dark:border-b-zinc-700  z-50 flex md:justify-around items-center sticky top-0 ${nav_window?"":"bg-zinc/900"}`}>
         <div
           onClick={logo_action}
           className="cursor-pointer w-30 h-10  md:w-37.5 md:h-10  relative"
         >
           {" "}
-          <Image fill src={"/logo-2.png"} alt="Logo" />
+          <Image fill src={"/logo-2.png"} alt="Logo" className="invert-100 dark:invert-0" />
         </div>
         <div className="hidden md:flex">
           <div className="flex ">
@@ -49,7 +60,7 @@ const Navbar = () => {
               <Link
                 href={link.link}
                 key={index}
-                className={` ${pathname === link.link ?"text-white ":"text-zinc-400"} m-2 font-light hover:text-white`}
+                className={` ${pathname === link.link ?"text-black dark:text-white":"text-zinc-600 dark:text-zinc-400"} m-2 font-light hover:text-black dark:hover:text-white`}
               >
                 {link.name}
               </Link>
@@ -59,7 +70,7 @@ const Navbar = () => {
             <div className="hidden md:flex">
               <Button
                 title={"Resume"}
-                back_ground_color={"bg-white"}
+                back_ground_color={"dark:bg-white"}
                 btn_width={"w-[90px]"}
               />
             </div>

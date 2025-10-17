@@ -68,17 +68,17 @@ const Project_det_card = () => {
       </div>
       <div className="text-center h-[120px] flex flex-col justify-center gap-7 items-center">
         <p className="w-[350px] text-[14px] md:text-1xl text-zinc-500">
-          A Website for <strong className="text-zinc-200">student</strong> to
-          see <strong className="text-zinc-200">Attedance</strong>,{" "}
-          <strong className="text-zinc-200">Marks</strong>,{" "}
-          <strong className="text-zinc-200">Fee</strong>,{" "}
-          <strong className="text-zinc-200">notics</strong> and other things in
+          A Website for <strong className="dark:text-zinc-200">student</strong> to
+          see <strong className="dark:text-zinc-200">Attedance</strong>,{" "}
+          <strong className="dark:text-zinc-200">Marks</strong>,{" "}
+          <strong className="dark:text-zinc-200">Fee</strong>,{" "}
+          <strong className="dark:text-zinc-200">notics</strong> and other things in
           one place
         </p>
         <Button
           title={"View More Projects"}
           btn_width={"w-[200px]"}
-          back_ground_color={"bg-zinc-200"}
+          back_ground_color={"dark:bg-zinc-200"}
         />
       </div>
     </div>

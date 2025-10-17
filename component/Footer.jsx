@@ -22,12 +22,12 @@ const Footer = () => {
   ];
 
   return (
-    <div className="border-t-[1px]  border-zinc-700">
+    <div className="border-t-[1px] border-zinc-300 dark:border-zinc-700">
       <div className="w-[100vw] md:w-[1100px] m-auto h-[300px] p-2.5 md:pt-10">
         <div className="grid grid-cols-3 md:flex gap-2.5 md:gap-20">
           <div className="col-span-3" >
             <div className="w-30 h-8 md:w-37.5 md:h-10 relative" >
-              <Image fill src={"/logo-2.png"} alt="Logo" />
+              <Image fill src={"/logo-2.png"} alt="Logo"  className="invert-100 dark:invert-0"  />
             </div>
           </div>
           <div>
@@ -58,10 +58,10 @@ const Footer = () => {
           </div>
          
           <div>
-            <h3 className="font-bold text-zinc-400 text-sm">Contact</h3>
-            <p className="text-zinc-200 text-[13px] md:text-sm m-1.5">Aman@gmail.com</p>
-            <p className="text-zinc-200 text-[13px] md:text-sm m-1.5">+91 1234567890</p>
-            <p className="text-zinc-200 text-[13px] md:text-sm m-1.5 ">Indore , MP</p>
+            <h3 className="font-bold text-zinc-600 dark:text-zinc-400 text-sm">Contact</h3>
+            <p className="text-zinc-600 dark:text-zinc-200 text-[13px] md:text-sm m-1.5">Aman@gmail.com</p>
+            <p className="text-zinc-600 dark:text-zinc-200 text-[13px] md:text-sm m-1.5">+91 1234567890</p>
+            <p className="text-zinc-600 dark:text-zinc-200 text-[13px] md:text-sm m-1.5 ">Indore , MP</p>
           </div>
           {/* <div>
             <Dark_Mode/>

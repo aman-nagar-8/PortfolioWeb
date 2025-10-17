@@ -3,16 +3,16 @@ import Image from "next/image";
 
 const Skills = () => {
   const images = [
-    { src: "/html-5.png", alt: "HTMl" },
-    { src: "/css-3.png", alt: "CSS" },
-    { src: "/js.png", alt: "JS" },
-    { src: "/science.png", alt: "React" },
-    { src: "/icons8-tailwindcss-48.png", alt: "TailWind" },
-    { src: "/icons8-node-js-48.png", alt: "Node" },
-    { src: "/icons8-express-js-16.png", alt: "Express" },
-    { src: "/java.png", alt: "Java" },
-    { src: "/next.svg", alt: "Next" },
-    { src: "/c-.png", alt: "C++" },
+    { src: "/html-5.png", alt: "HTMl" ,cl:"" },
+    { src: "/css-3.png", alt: "CSS" ,cl:""},
+    { src: "/js.png", alt: "JS" ,cl:"" },
+    { src: "/science.png", alt: "React" ,cl:""},
+    { src: "/icons8-tailwindcss-48.png", alt: "TailWind" ,cl:""},
+    { src: "/icons8-node-js-48.png", alt: "Node" ,cl:""},
+    { src: "/icons8-express-js-16.png", alt: "Express" ,cl:"invert-0 dark:invert-100" },
+    { src: "/java.png", alt: "Java" ,cl:""},
+    { src: "/next.svg", alt: "Next" ,cl:"invert-0 dark:invert-100"},
+    { src: "/c-.png", alt: "C++" ,cl:""},
   ];
 
   return (
@@ -22,7 +22,7 @@ const Skills = () => {
         {images.map((img, index) => (
           <div key={index} className="flex flex-col  items-center gap-2">
             <div className="w-7 h-7 md:w-12 md:h-12 relative">
-              <Image fill src={img.src} alt={img.alt} />
+              <Image fill src={img.src} alt={img.alt} className={`${img.cl}`}/>
             </div>
             <p className="text-[14px] md:text-1xl" >{img.alt}</p>
           </div>

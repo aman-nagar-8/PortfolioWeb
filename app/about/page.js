@@ -6,7 +6,10 @@ import Image from "next/image";
 import Education_card from "@/component/about/education_card";
 
 const page = () => {
-  const educations = [1 , 2, 3]
+  const educations = [
+    {name:"B-Tech(CSE)",year:"2024-28",school:"CDGI Indore - RGPV University",det:"Currently pursuing 2nd year with a focus on core computer science concepts like DSA, DBMS, and OOPs",mark:"CGPA - 7.0" } , 
+    {name:"12th",year:"2023-24",school:"SSVM Rajgarh - MP Board ",det:"",mark:"CGPA - 8.74" },
+    {name:"10th",year:"2021-22",school:"SSVM Rajgarh - MP Board ",det:"",mark:"CGPA - 9.16" }]
   return (
     <div>
       <div className=" mb-10">
@@ -18,7 +21,7 @@ const page = () => {
               </h1>
             </div>
             <div className="ml-5">
-              <p className="font-thin text-[14px] md:text-1xl text-zinc-400">
+              <p className="font-thin text-[14px] md:text-1xl text-zinc-800 dark:text-zinc-400">
                {" A Computer Science Engineering student from RGPV with a strong interest in full-stack development and AI-based problem solving.I enjoy creating real-world tech solutions and continuously learning new technologies."}
               </p>
             </div>
@@ -50,50 +53,52 @@ const page = () => {
           </div>
         </div>
         <div className="w-[100vw] md:w-[1100px] m-auto  font-bold text-[18px]">
-          <h2 className="p-4 text-[20px] text-zinc-200">Education</h2>
+          <h2 className="p-4 text-[20px] text-zinc-700 dark:text-zinc-200">Education</h2>
           <div className="flex px-5" >
 
           <div className="" >
-            {educations.map((e , index)=>(
-              <Education_card key={index} />
+            {educations.map((edu , index)=>(
+              <Education_card edu={edu} key={index} />
             ))}
           </div>
           <div className="w-10 h-98 mt-10 p-2.5 flex flex-col  items-center bg-red" >
             <div className="w-5 mt-5 h-5 bg-yellow-500" ></div>
 
-            <div className="h-20 w-0 border-l-2 border-yellow-400" ></div>
-            <div className="h-15 w-0 border-l-2 border-green-400" ></div>
+            <div className="h-17 w-0 border-l-2 border-yellow-400" ></div>
+            <div className="h-10 w-0 border-l-2 border-green-400" ></div>
             <div className="w-5 h-5 bg-green-500" ></div>
-            <div className="h-30 w-0 border-l-2 border-green-500" ></div>
+            <div className="h-20 w-0 border-l-2 border-green-500" ></div>
             <div className="w-5 h-5 bg-green-500" ></div>
              <div className="h-10 w-0 border-l-2 border-zinc-500" ></div>
           </div>
             </div>
         </div>
         <div className="w-[100vw] md:w-[1100px] m-auto font-bold text-[18px]" >
-              <h2 className="p-4 text-[20px] text-zinc-200">Experiance</h2>
+              <h2 className="p-4 text-[20px] text-zinc-700 dark:text-zinc-200">Experiance</h2>
         </div>
-        <div className="w-[92vw] md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-900  mx-5 p-2" >
-              <h2 className="p-2 text-[17px] text-zinc-200">Hackathons</h2>
-              <div className="w-35 ml-8 h-10 rounded-2xl bg-zinc-700 " >
-                 
+        <div className="w-[92vw] md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-200 rounded-xl dark:bg-zinc-900  p-2" >
+              <h2 className="p-2 text-[17px] text-zinc-700 dark:text-zinc-200">Hackathons</h2>
+              <div className="w-35 ml-8 h-10 rounded-2xl bg-zinc-300 dark:bg-zinc-700 " >   
+        </div>
+        </div>
+        <div className="w-[92vw] md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-200 rounded-xl dark:bg-zinc-900 mt-7 p-2" >
+              <h2 className="p-2 text-[17px] text-zinc-700 dark:text-zinc-200">Open-source contributions</h2>
+              <div className="w-35  ml-8 h-10 rounded-2xl bg-zinc-300 dark:bg-zinc-700" >
+        </div>
+        </div>
+        <div  >
+              <div className="w-[100vw] md:w-[1100px] m-auto font-bold text-[18px]" >
+              <h2 className="p-4 text-[20px] text-zinc-700 dark:text-zinc-200">Interest</h2>
               </div>
-        </div>
-        <div className="w-[92vw] md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-900 mt-7 p-2" >
-              <h2 className="p-2 text-[17px] text-zinc-200">Open-source contributions</h2>
-              <div className="w-35  ml-8 h-10 rounded-2xl bg-zinc-700" >
-
+              <div className="w-[92vw] md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-200 rounded-xl dark:bg-zinc-900 mt-2">
+              <p className="text-[14px] md:text-[15px] font-normal p-2" >{"I’m passionate about exploring emerging technologies, especially in AI, system design, and full-stack development. I love participating in hackathons, collaborating on innovative ideas, and learning through hands-on projects."}</p>
               </div>
-        </div>
-        <div className="w-[92vw] md:w-[1100px] m-auto font-bold text-[18px] bg-zinc-900 mt-10" >
-              <h2 className="p-2 text-[20px] text-zinc-200">Interests</h2>
-              <p className="text-[15px] font-normal p-2" >{"I’m passionate about exploring emerging technologies, especially in AI, system design, and full-stack development. I love participating in hackathons, collaborating on innovative ideas, and learning through hands-on projects."}</p>
         </div>
         <div className="w-[92vw] md:w-[1100px] m-auto  mt-7" >
-        <p className="text-[17px]" >Outside of tech, I enjoy exploring UI/UX design, listening to music, and reading about startups and new innovations.</p>
+        <p className="text-[14px] md:text-[17px]" >Outside of tech, I enjoy exploring UI/UX design, listening to music, and reading about startups and new innovations.</p>
         </div>
         <div className="w-[92vw] md:w-[1100px] m-auto text-[17px] mt-7" >
-        <p className="text-[17px]" >{"I’m always open to collaborations, new opportunities, and discussions about innovative ideas. Let’s connect: LinkedIn ,GitHub ,Email"}</p>
+        <p className="text-[14px] md:text-[17px]" >{"I’m always open to collaborations, new opportunities, and discussions about innovative ideas. Let’s connect: LinkedIn ,GitHub ,Email"}</p>
         </div>
       </div>
     </div>

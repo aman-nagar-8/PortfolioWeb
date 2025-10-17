@@ -58,7 +58,7 @@ const Project = () => {
     },
   ];
   return (
-    <div className="border-b-[1px] border-zinc-700 ">
+    <div className="border-b-[1px] border-b-zinc-300 dark:border-zinc-700 ">
       <h1 className="text-center font-bold text-2xl mt-5">Projects</h1>
       <div className="flex flex-col-reverse md:flex-row w-[100vw] md:w-[1500px]  md:m-auto justify-center gap-7  flex-wrap">
         <Project_det_card/>
