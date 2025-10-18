@@ -3,7 +3,7 @@
 import React from 'react'
 
 const page = () => {
-   const blog_num = [1 , 2 , 3];
+   const blog_num = [1 ];
   return (
     <div className=' w-full md:w-[1120px] m-auto p-5' >
       <div>

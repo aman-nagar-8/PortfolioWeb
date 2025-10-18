@@ -1,8 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 const Project_det_card = () => {
+  const router = useRouter();
+  const project_page =()=>{
+      router.push("/project")
+  }
   return (
     <div className="w-[100vw] md:w-[700px] md:h-[550px] cursor-pointer my-5 ">
       <div className="h-[50px] flex items-center justify-center">
@@ -76,6 +81,7 @@ const Project_det_card = () => {
           one place
         </p>
         <Button
+          task={project_page}
           title={"View More Projects"}
           btn_width={"w-[200px]"}
           back_ground_color={"dark:bg-zinc-200"}

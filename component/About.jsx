@@ -6,9 +6,11 @@ import { MdOutlinePhone } from "react-icons/md";
 import Button from './Button'
 import Image from 'next/image'
 import { useEffect, useState} from 'react';
+import { useRouter } from 'next/navigation';
 
 
 const About = () => {
+    const router = useRouter();
     const [md , setMd] = React.useState(false);
     useEffect(() => {
         if(window.innerWidth >= 768){
@@ -17,6 +19,9 @@ const About = () => {
             setMd(false)
         }
     }, [])
+    const about_page =()=>{
+       router.push("/about");
+    }
   return (
     <div className='border-b-[1px] border-b-zinc-300 dark:border-zinc-700 '  >
     <div className='md:h-[92vh] w-[100vw] md:w-[1100px] m-auto flex flex-col-reverse md:flex-row justify-between border-zinc-700'>
@@ -28,7 +33,7 @@ const About = () => {
                 <p className='font-thin text-[14px] md:text-1xl dark:text-zinc-400' > I am a <strong className='dark:text-zinc-200 '>web developer</strong> and <strong className='dark:text-zinc-200'>designer</strong>  specializing in <strong className='dark:text-zinc-200' >Java</strong> and the <strong className='dark:text-zinc-200'>MERN stack</strong>, with Tailwind CSS for building responsive and modern websites. I focus on creating innovative solutions that solve real-world problems and deliver seamless digital experiences for clients."</p>
             </div>
             <div className='flex justify-end mr-10 mt-2'>
-                <Button title={"About Me"} back_ground_color={"dark:bg-zinc-300"} btn_width={"w-[90px]"} />
+                <Button task={about_page} title={"About Me"} back_ground_color={"dark:bg-zinc-300"} btn_width={"w-[90px]"} />
             </div>
             <div className=' ml-5 md:ml-15 mt-8 mb-5 text-[14px] md:text-1xl flex flex-col gap-2' >
                 <div className='flex gap-2' >
