@@ -31,10 +31,10 @@ const show_message = () => {
           See Messages
         </button>
       </div>
-      <div className="w-[800px] flex flex-wrap gap-7" >
+      <div className="w-full md:w-[800px] flex flex-col md:flex-row flex-wrap gap-7" >
         {skeleton ? 
         ske_arr.map((_, index)=>(
-         <div key={index} className=" w-90 h-28 bg-zinc-900 mr-5 p-3 rounded-xl">
+         <div key={index} className=" w-70 md:w-90 h-28 bg-zinc-900 mr-5 p-3 rounded-xl">
           <div className="pb-3 flex gap-2">
           <div className="w-7 h-7 rounded-lg bg-zinc-500"></div>
           <div className="w-20 mt-1.5 h-2 bg-zinc-700 rounded-2xl" >
@@ -45,7 +45,7 @@ const show_message = () => {
           </div> 
         )):
         all_mess.map((mess, index) => (
-          <div key={index} className="w-90 bg-zinc-900 mr-5 p-3 rounded-xl">
+          <div key={index} className="w-70 md:w-90 bg-zinc-900 mr-5 p-3 rounded-xl">
           <div className="pb-3 flex gap-2">
           <div className="w-7 h-7 rounded-lg bg-zinc-500"></div>
           <div>

@@ -155,7 +155,7 @@ const page = () => {
           <div>
             <Message_input/>
           </div>
-          <div className="mt-5 ml-12" >
+          <div className="mt-5 ml-5 md:ml-12" >
             <Show_message/>
           </div>
         </div>

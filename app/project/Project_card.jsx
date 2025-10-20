@@ -9,7 +9,7 @@ const project_card = () => {
         router.push(`/project/${project_id}`);
     }
   return (
-    <div onClick={project_expl_page} className='w-[470px] h-[420px]  rounded-xl cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 p-3' >
+    <div onClick={project_expl_page} className='w-[350px] md:w-[470px] h-[420px] bg-zinc-800 md:bg-zinc-950 rounded-xl cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 p-3' >
       <div className='w-full h-[270px] bg-pink-300 rounded-xl' >
 
       </div>

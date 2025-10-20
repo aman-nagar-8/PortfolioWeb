@@ -19,10 +19,9 @@ const message_input = () => {
      console.log(res_mess)
   }
   return (
-    <div className="w-[500px] text-sm ml-10 font-normal flex">
+    <div className="w-full md:w-[500px] text-sm ml-3 md:ml-10 font-normal flex">
             <form onSubmit={(e)=>{
                e.preventDefault();
-               console.log("function run ")
                add_message(e);
 
             }} action="" className='flex flex-col' >
@@ -35,9 +34,9 @@ const message_input = () => {
                 placeholder="Name"
               />
               
-              <textarea onChange={(e)=> setmess(e.target.value)} name='mess' value={mess} placeholder="Message"  className="w-80 h-20 m-2 p-2 rounded-lg border border-zinc-700 focus:outline-none bg-zinc-900 "   ></textarea>
+              <textarea onChange={(e)=> setmess(e.target.value)} name='mess' value={mess} placeholder="Message"  className="w-80 md:w-80 h-20 m-2 p-2 rounded-lg border border-zinc-700 focus:outline-none bg-zinc-900 "   ></textarea>
               <button  className="w-18 h-8 ml-2 bg-green-600 cursor-pointer rounded-lg" >Add</button>
-            </form>
+            </form>                   
           </div>
   )
 }
