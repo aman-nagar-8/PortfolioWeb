@@ -1,13 +1,13 @@
 import React from 'react'
 import Project_section from './Project_section';
 
-export async function generateStaticParams() {
-  const projects = [{id:"0"} , {id:"1"} , {id:"2"}]
+// export async function generateStaticParams() {
+//   const projects = [{id:"0"} , {id:"1"} , {id:"2"}]
 
-  return projects.map((Project) => ({
-    project_id: Project.id,
-  }));
-}
+//   return projects.map((Project) => ({
+//     project_id: Project.id,
+//   }));
+// }
 
 const page = () => {
   return (

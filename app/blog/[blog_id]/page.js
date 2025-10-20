@@ -5,13 +5,13 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import Back_button from '@/component/Back_button';
 
 
-export async function generateStaticParams() {
-  const blogs = [{id:"0"} , {id:"1"} , {id:"2"}]
+// export async function generateStaticParams() {
+//   const blogs = [{id:"0"} , {id:"1"} , {id:"2"}]
 
-  return blogs.map((blog) => ({
-    blog_id: blog.id,
-  }));
-}
+//   return blogs.map((blog) => ({
+//     blog_id: blog.id,
+//   }));
+// }
 
 const page = ({params}) => {
     // const router = useRouter();
