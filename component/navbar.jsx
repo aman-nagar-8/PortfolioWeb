@@ -12,7 +12,6 @@ import { FaHome } from "react-icons/fa";
 import { GoProject } from "react-icons/go";
 
 const Navbar = () => {
-  const popupRef = useRef(null);
   const pathname = usePathname();
   const [logo, set_logo] = useState(false);
   const logo_action = () => {
@@ -36,6 +35,9 @@ const Navbar = () => {
 //     document.removeEventListener("click", handleclick)
 //    }
 //   } , [!nav_window])
+const resume = ()=>{
+    console.log("bhai resume ")
+}
 
   const UrlLinkes = [
     { name: "Home", link: "/" ,  },
@@ -52,7 +54,7 @@ const Navbar = () => {
           className="cursor-pointer w-30 h-10  md:w-37.5 md:h-10  relative"
         >
           {" "}
-          <Image fill src={"/logo-2.png"} alt="Logo" className="invert-100 dark:invert-0" />
+          <Image priority={false} fill src={"/logo-2.png"} alt="Logo" className="invert-100 dark:invert-0" />
         </div>
         <div className="hidden md:flex">
           <div className="flex ">
@@ -69,6 +71,7 @@ const Navbar = () => {
           <div className="ml-6 mt-1 md:static">
             <div className="hidden md:flex">
               <Button
+                task={resume}
                 title={"Resume"}
                 back_ground_color={"dark:bg-white"}
                 btn_width={"w-[90px]"}

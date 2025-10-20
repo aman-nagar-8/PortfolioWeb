@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="grid grid-cols-3 md:flex gap-2.5 md:gap-20">
           <div className="col-span-3" >
             <div className="w-30 h-8 md:w-37.5 md:h-10 relative" >
-              <Image fill src={"/logo-2.png"} alt="Logo"  className="invert-100 dark:invert-0"  />
+              <Image priority={false} fill src={"/logo-2.png"} alt="Logo"  className="invert-100 dark:invert-0"  />
             </div>
           </div>
           <div>
@@ -36,7 +36,7 @@ const Footer = () => {
               {navLinks.map((link, index) => (
                 <div
                   key={index}
-                  className="text-zinc-500 text-[13px] md:text-[15px] m-1.5 md:m-2 hover:text-zinc-200"
+                  className="text-zinc-500 text-[13px] md:text-[15px] m-1.5 md:m-2 hover:text-zinc-800 dark:hover:text-zinc-200"
                 >
                   <Link href={link.href}>{link.name}</Link>
                 </div>
@@ -49,7 +49,7 @@ const Footer = () => {
               {CompanyLinks.map((link, index) => (
                 <div
                   key={index}
-                  className="text-zinc-500 text-[13px] md:text-[15px] m-1.5 md:m-2 hover:text-zinc-200"
+                  className="text-zinc-500 text-[13px] md:text-[15px] m-1.5 md:m-2 hover:text-zinc-800 dark:hover:text-zinc-200"
                 >
                   <Link href={link.href}>{link.name}</Link>
                 </div>
