@@ -1,22 +1,27 @@
 "use client"
 import React from 'react'
 import { useState } from 'react'
+import dayjs from 'dayjs'
 
 
 const message_input = () => {
   const [name , setname] = useState("");
   const [mess , setmess] = useState("");
+
   const add_message = async (e)=>{
-     console.log(name , mess)
+      const date = dayjs().format("DD MMM YYYY");
+      if(name.trim() === "" || mess.trim() === ""){
+        const fill_err = "fill the all fields"
+        return ;
+      }
     const res =  await fetch("/api/messages",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({name , mess})
+      body: JSON.stringify({name , mess , date})
      });
      const res_mess = await res.json();
      setname("");
      setmess("");
-     console.log(res_mess)
   }
   return (
     <div className="w-full md:w-[500px] text-sm ml-3 md:ml-10 font-normal flex">

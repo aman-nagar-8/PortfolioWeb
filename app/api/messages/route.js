@@ -1,17 +1,7 @@
 import { connectDB } from "@/lib/db";
 import mongoose from "mongoose";
+import message from "@/models/message";
 
-const mess_schema = new mongoose.Schema({
-  name: String,
-  mess: String,
-  like: {
-    type: Number,
-    default: 0,
-  },
-});
-
-const message =
-  mongoose.models.message || mongoose.model("message", mess_schema);
 
 export async function GET() {
   try {
@@ -27,8 +17,8 @@ export async function POST(req) {
   try {
     await connectDB();
     console.log("DB connected next");
-    const { name, mess } = await req.json();
-    const newMess = new message({ name, mess });
+    const { name, mess , date} = await req.json();
+    const newMess = new message({ name, mess , date });
     await newMess.save();
     return Response.json({ message: "Message added!" });
   } catch (error) {
