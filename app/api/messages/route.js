@@ -7,7 +7,6 @@ export async function GET() {
   try {
     await connectDB();
     const messages = await message.find();
-    console.log(messages.data);
     return Response.json({ allmes: messages });
   } catch (error) {
     console.error("GET api/message errr :", error);

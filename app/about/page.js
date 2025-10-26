@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Account_links from "@/component/Account_links";
 import { CiLocationOn } from "react-icons/ci";
@@ -7,6 +7,7 @@ import Image from "next/image";
 import Education_card from "@/component/about/education_card";
 import Message_input from "./Message_input";
 import Show_message from "./show_message";
+import BlurText from "@/component/motion/BlurText";
 
 const page = () => {
   const md = true;
@@ -40,7 +41,13 @@ const page = () => {
           <div className="md:h-[92vh] w-[100vw] md:w-[700px] flex flex-col">
             <div>
               <h1 className="font-bold text-[25px] md:text-[40px] mt-10 md:mt-35 mb-5 ml-5">
-                {"Hi ,I'm Aman"}
+                <BlurText
+                  text="Hi ,I'm Aman"
+                  delay={150}
+                  animateBy="words"
+                  direction="top"
+                  className="text-2xl md:text-[40px] font-bold "
+                />
               </h1>
             </div>
             <div className="ml-5">
@@ -88,13 +95,13 @@ const page = () => {
               ))}
             </div>
             <div className="w-10 h-98 mt-10 p-2.5 flex flex-col  items-center bg-red">
-              <div className="w-5 mt-5 h-5 bg-yellow-500"></div>
+              <div className="w-5 mt-5 h-5 rounded-lg bg-yellow-500"></div>
 
               <div className="h-17 w-0 border-l-2 border-yellow-400"></div>
               <div className="h-10 w-0 border-l-2 border-green-400"></div>
-              <div className="w-5 h-5 bg-green-500"></div>
+              <div className="w-5 h-5 rounded-lg bg-green-500"></div>
               <div className="h-20 w-0 border-l-2 border-green-500"></div>
-              <div className="w-5 h-5 bg-green-500"></div>
+              <div className="w-5 h-5 rounded-lg bg-green-500"></div>
               <div className="h-10 w-0 border-l-2 border-zinc-500"></div>
             </div>
           </div>
@@ -108,13 +115,13 @@ const page = () => {
           <h2 className="p-2 text-[17px] text-zinc-700 dark:text-zinc-200">
             Hackathons
           </h2>
-          <div className="w-35 ml-8 h-10 rounded-2xl bg-zinc-300 dark:bg-zinc-700 "></div>
+          <div className=" w-20 h-8 md:w-35 ml-8 md:h-10 rounded-lg md:rounded-2xl bg-zinc-300 dark:bg-zinc-700 "></div>
         </div>
         <div className="w-[92vw] md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-200 rounded-xl dark:bg-zinc-900 mt-7 p-2">
           <h2 className="p-2 text-[17px] text-zinc-700 dark:text-zinc-200">
             Open-source contributions
           </h2>
-          <div className="w-35  ml-8 h-10 rounded-2xl bg-zinc-300 dark:bg-zinc-700"></div>
+          <div className="w-20 h-8 md:w-35 ml-8 md:h-10 rounded-lg md:rounded-2xl bg-zinc-300 dark:bg-zinc-700"></div>
         </div>
         <div>
           <div className="w-[100vw] md:w-[1100px] m-auto font-bold text-[18px]">
@@ -153,10 +160,10 @@ const page = () => {
             Message for me
           </h2>
           <div>
-            <Message_input/>
+            <Message_input />
           </div>
-          <div className="mt-5 ml-5 md:ml-12" >
-            <Show_message/>
+          <div className="mt-5 ml-5 md:ml-12">
+            <Show_message />
           </div>
         </div>
       </div>

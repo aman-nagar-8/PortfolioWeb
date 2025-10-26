@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Add_like from "./Add_like";
 import dayjs from "dayjs";
+import Image from "next/image";
 
 const show_message = () => {
   const [all_mess, setall_mess] = useState([]);
@@ -41,23 +42,25 @@ const show_message = () => {
           ? ske_arr.map((_, index) => (
               <div
                 key={index}
-                className=" w-70 md:w-90 h-28 bg-zinc-900 mr-5 p-3 rounded-xl"
+                className=" w-70 md:w-90 h-28 bg-zinc-200 dark:bg-zinc-900 mr-5 p-3 rounded-xl"
               >
                 <div className="pb-3 flex gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-zinc-500"></div>
-                  <div className="w-20 mt-1.5 h-2 bg-zinc-700 rounded-2xl"></div>
+                  <div className="w-7 h-7 rounded-lg bg-zinc-400 dark:bg-zinc-500"></div>
+                  <div className="w-20 mt-1.5 h-2 bg-zinc-400 dark:bg-zinc-700 rounded-2xl"></div>
                 </div>
-                <div className="w-50 h-2 bg-zinc-700 rounded-2xl"></div>
+                <div className="w-50 h-2 bg-zinc-400 dark:bg-zinc-700 rounded-2xl"></div>
               </div>
             ))
           : all_mess.map((mess, index) => (
               <div
                 key={index}
-                className="w-70 md:w-90 bg-zinc-900 mr-5 p-3 rounded-xl"
+                className="w-80 md:w-90 bg-zinc-200 dark:bg-zinc-900 mr-5 p-3 rounded-xl"
               >
                 <div className="pb-3 flex gap-2 justify-between">
                   <div className="flex gap-2" >
-                    <div className="w-8 h-8 rounded-lg bg-zinc-500"></div>
+                    <div className="w-8 h-8 rounded-lg bg-zinc-400 dark:bg-zinc-500">
+                     <Image src={"/people.png"} alt="Profile" width={30} height={30} className="dark:invert-20 invert-80 text-zinc-500" />
+                    </div>
                     <div>
                       <h4 className="font-bold text-sm">{mess.name}</h4>
                       <h3 className="font-normal text-[10px] text-zinc-400">
