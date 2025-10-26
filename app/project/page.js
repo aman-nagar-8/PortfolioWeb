@@ -4,7 +4,7 @@ import Project_card from './Project_card'
 import { useEffect } from 'react'
 
 
-const page =  () => {
+const Project_page =  () => {
   const [projects , setprojects] = useState([]);
  const get_project = async ()=>{
    const res = await fetch("/api/projects", {
@@ -37,4 +37,4 @@ const page =  () => {
   )
 }
 
-export default page
+export default Project_page;

@@ -45,13 +45,10 @@ const page = () => {
 
  }
 
-
-
-
-  useEffect(() => {
-//    update_user();
-      update_project();
-  }, [])
+//   useEffect(() => {
+// //    update_user();
+//       update_project();
+//   }, [])
    
 
   return (
