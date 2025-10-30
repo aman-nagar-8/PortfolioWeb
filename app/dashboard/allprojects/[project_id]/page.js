@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { TbReload } from "react-icons/tb";
 
-const page = () => {
+const Project_id_page = () => {
   const params = useParams();
   // const ts = ["HTML", "CSS", "JS", "Node js", "MongoDB"];
   // const feat = [{ title: "attendance system", detail: "about attendance" }];
@@ -346,4 +346,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Project_id_page;

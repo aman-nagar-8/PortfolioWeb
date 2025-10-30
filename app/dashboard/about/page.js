@@ -6,7 +6,7 @@ import { TbReload } from "react-icons/tb";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-const about_page = () => {
+const About_page = () => {
   const router = useRouter();
   const reload_button = ()=>{
     setmessage("Reloading...")
@@ -145,4 +145,4 @@ const about_page = () => {
   );
 };
 
-export default about_page;
+export default About_page;

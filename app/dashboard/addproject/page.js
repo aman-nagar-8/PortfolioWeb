@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { TbReload } from "react-icons/tb";
 
-const allproject_page = () => {
+const Addproject_page = () => {
   const params = useParams();
   const ts = ["HTML", "CSS", "JS", "Node js", "MongoDB"];
   const feat = [{ title: "attendance system", detail: "about attendance" }];
@@ -40,10 +40,6 @@ const allproject_page = () => {
 //     setprojects(res_project.project);
 //   };
 
-  useEffect(() => {
-    settackstack(ts);
-    setfeatures(feat);
-  }, []);
 
 //   useEffect(() => {
 //     settitle(projects?.title || "");
@@ -347,6 +343,6 @@ const allproject_page = () => {
   );
 };
 
-export default allproject_page;
+export default Addproject_page;
 
 

@@ -3,7 +3,7 @@ import React from "react";
 import Project_card from "./project_card";
 import { useState, useEffect } from "react";
 
-const allproject_page = () => {
+const Allproject_page = () => {
   const [skeleton, setskeleton] = useState(false);
   const [projects, setprojects] = useState([]);
   const get_project = async () => {
@@ -45,4 +45,4 @@ const allproject_page = () => {
   );
 };
 
-export default allproject_page;
+export default Allproject_page;
