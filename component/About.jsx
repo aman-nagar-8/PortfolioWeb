@@ -12,7 +12,7 @@ import Particles from "@/component/motion/Bg_motion";
 
 const About = () => {
   const router = useRouter();
-  const [md, setMd] = React.useState(false);
+  const [md, setMd] = useState(false);
   const [user, setuser] = useState({});
   useEffect(() => {
     if (window.innerWidth >= 768) {
