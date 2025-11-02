@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function ImageUploader() {
   const [image, setimage] = useState(null);
-  const [uploadedUrl, setUploadedUrl] = useState("");
+  const [uploadedUrl, setUploadedUrl] = useState("/hello");
 
   const [Images, setImages] = useState([]);
 
@@ -53,30 +54,12 @@ export default function ImageUploader() {
           <a href={uploadedUrl} target="_blank">
             {uploadedUrl}
           </a>
-          <img src={uploadedUrl} alt="Uploaded" className="w-48 mt-2" />
+          <div className="w-48 h-32 relative" >
+          <Image fill src={uploadedUrl} alt="Uploaded" />
+          </div>
         </div>
       )}
 
-      <div className="flex" >
-        <input
-          type="file"
-          accept="image/*"
-          className="block w-90 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-          onChange={handleChange_title_img}
-        />
-        <div className="flex gap-5">
-          <button
-            type="button"
-            onClick={handleUpload_title_img}
-            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-          >
-            Add Image
-          </button>
-          <div className="pt-1.5 px-4 border mt-4 rounded-lg text-sm border-zinc-300">
-            {title_img_message}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
