@@ -69,7 +69,7 @@ const Footer = () => {
           </div> */}
         </div>
         <div className="h-[50px] mt-10">
-          <Account_links w={"20px"} h={"20px"} />
+          <Account_links />
         </div>
       </div>
     </div>

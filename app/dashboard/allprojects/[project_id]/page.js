@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { TbReload } from "react-icons/tb";
+import Image from "next/image";
 
 const Project_id_page = () => {
   const params = useParams();
@@ -16,11 +17,18 @@ const Project_id_page = () => {
   const [demo, setdemo] = useState("loading...");
   const [github, setgithub] = useState("loading...");
   const [created_At, setcreated_At] = useState("loading...");
-  const [title_img, settitle_img] = useState("loading...");
+  const [title_img, settitle_img] = useState("/title");
   const [techstack, settackstack] = useState([]);
   const [images, setimages] = useState([]);
 
-  const [message , setmessage] = useState("project Loaded!..");
+
+  const [choose_title_img, setchoose_title_img] = useState(null)
+  const [feat_choosen_img, setfeat_choosen_img] = useState(null);
+  const [feat_upload_img_url, setfeat_upload_img_url] = useState("");
+  const [feat_img_message, setfeat_img_message] = useState("");
+
+  const [message, setmessage] = useState("project Loaded!..");
+  const [title_img_message, settitle_img_message] = useState("No update")
 
   const [new_ts, setnew_ts] = useState("");
   const [ts_delete_btn_diseble, setts_delete_btn_diseble] = useState(true);
@@ -65,7 +73,7 @@ const Project_id_page = () => {
   const add_features_button = () => {
     if (new_features_title.trim() == "") return;
     if (new_features_detail.trim() == "") return;
-    const new_feat = { title: new_features_title, detail: new_features_detail };
+    const new_feat = { title: new_features_title, detail: new_features_detail, image:feat_upload_img_url };
     setfeatures([...features, new_feat]);
     setnew_features_title("");
     setnew_features_detail("");
@@ -118,24 +126,74 @@ const Project_id_page = () => {
     setnew_features_title("");
   };
 
+  const update_project = async () => {
+    const res = await fetch(`/api/projects/${params.project_id}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title,
+        intro,
+        techstack,
+        github,
+        demo,
+        title_img,
+        images,
+        features,
+        created_At,
+      }),
+    });
+    const updated_res = await res.json();
+    setmessage(updated_res.message);
+    setprojects(updated_res.project);
+  };
 
-  const update_project = async ()=>{
-  console.log(" project adding");
-  const res = await fetch(`/api/projects/${params.project_id}` , {
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({title , intro , techstack , github , demo , title_img , images , features , created_At})
-     });
-      const updated_res = await res.json();
-      console.log(updated_res);
-      setmessage(updated_res.message);
-      setprojects(updated_res.project);
- }
+  const update_project_btn = async () => {
+    setmessage("Project Undating...");
+    await update_project();
+  };
 
- const update_project_btn = async ()=>{
-      setmessage("Project Undating...")
-      await update_project();
- }
+
+   const handleUpload_title_img = async () => {
+    if (!choose_title_img) return settitle_img_message("Select an image first!");
+
+    const formData = new FormData();
+    formData.append("image", choose_title_img); // key must match backend field name
+
+    const res = await fetch("/api/addimage", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await res.json();
+    settitle_img_message(data?.message);
+    settitle_img(data?.cloudinaryUrl);
+  };
+
+   const handleChange_title_img = (e) => {
+    setchoose_title_img(e.target.files[0]);
+  };
+
+
+     const handleUpload_feature_img = async () => {
+    if (!feat_choosen_img) return setfeat_img_message("Select an image first!");
+
+    const formData = new FormData();
+    formData.append("image", feat_choosen_img); // key must match backend field name
+
+    const res = await fetch("/api/addimage", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await res.json();
+    setfeat_img_message(data?.message);
+    setfeat_upload_img_url(data?.cloudinaryUrl);
+  };
+
+    const handleChange_feature_img = (e) => {
+    setfeat_choosen_img(e.target.files[0]);
+  };
+
 
   return (
     <div className="text-zinc-800 pl-5">
@@ -151,7 +209,14 @@ const Project_id_page = () => {
         </h3>
       </div>
       <div className="flex gap-5">
-        <form onSubmit={(e)=>{e.preventDefault(); update_project_btn();}} action="" className="flex gap-5">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            update_project_btn();
+          }}
+          action=""
+          className="flex gap-5"
+        >
           <div>
             <div className="border border-zinc-300 w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
               <p>Project Name -</p>
@@ -229,29 +294,60 @@ const Project_id_page = () => {
                 type="text"
                 placeholder="add detail..."
               />
+
+               
+
+      <div className="flex" >
+        <input
+          type="file"
+          accept="image/*"
+          className="block w-90 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+          onChange={handleChange_feature_img}
+        />
+        <div className="flex gap-5">
+          <button
+            type="button"
+            onClick={handleUpload_feature_img}
+            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            Add Image
+          </button>
+          <div className="pt-1.5 px-4 border mt-4 rounded-lg text-sm border-zinc-300">
+            {feat_img_message} 
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+              <div>
+
               <button
                 type="button"
                 onClick={add_features_button}
                 className="w-15 py-2 bg-green-500 rounded-lg cursor-pointer  text-zinc-800 ml-3"
-              >
+                >
                 Add
               </button>
               {features_delete_btn_diseble ? (
                 ""
               ) : (
                 <button
-                  type="button"
-                  onClick={() =>
-                    delete_features_button(
-                      new_features_title,
-                      new_features_detail
-                    )
-                  }
-                  className="w-15 py-2 border border-zinc-400  rounded-lg cursor-pointer hover:border-zinc-600 text-zinc-800 ml-2"
+                type="button"
+                onClick={() =>
+                  delete_features_button(
+                    new_features_title,
+                    new_features_detail
+                  )
+                }
+                className="w-15 py-2 border border-zinc-400  rounded-lg cursor-pointer hover:border-zinc-600 text-zinc-800 ml-2"
                 >
                   Delete
                 </button>
               )}
+              </div>
             </div>
           </div>
           <div>
@@ -266,12 +362,29 @@ const Project_id_page = () => {
             </div>
             <div className="border border-zinc-300 w-[400px] text-zinc-500 mt-5 p-4 rounded-lg">
               <p>Profile Image URI -</p>
+              <div className="w-full my-4 rounded-lg border-zinc-300 h-50 border relative" >
+                {title_img == "" ? <div className="mt-18 ml-23 text-zinc-400" >No Profile image </div>:
+                 <Image fill src={title_img} alt="no Image" className="rounded-lg" />
+                }
+              </div>
               <input
-                value={title_img}
-                onChange={(e) => settitle_img(e.target.value)}
-                className="bg-zinc-100 rounded-lg w-70 h-12 border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
-                type="text"
+                type="file"
+                accept="image/*"
+                className="block w-90 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                onChange={handleChange_title_img}
               />
+              <div className="flex gap-5" >
+              <button
+                type="button"
+                onClick={handleUpload_title_img}
+                className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+              >
+                Add Image
+              </button>
+              <div className="pt-1.5 px-4 border mt-4 rounded-lg text-sm border-zinc-300" >
+                {title_img_message}
+              </div>
+              </div>
             </div>
             <div className="border border-zinc-300 w-[400px] text-zinc-500 mt-5 p-4 rounded-lg">
               <div className="flex justify-between">
@@ -320,7 +433,7 @@ const Project_id_page = () => {
                 </button>
               )}
             </div>
-            <div className="border border-green-300 p-2 mt-4 rounded-lg" >  
+            <div className="border border-green-300 p-2 mt-4 rounded-lg">
               <div className="flex gap-3 ">
                 <button
                   type="submit"

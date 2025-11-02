@@ -1,6 +1,7 @@
 
 
 import About from "@/component/About.jsx";
+import About_client from "@/component/About_client";
 
 import Skills from "@/component/Skills.jsx";
 
@@ -10,7 +11,7 @@ export default function Home() {
   
   return (
     <>
-    <About/>
+    <About_client/>
     <Project/>
     <Skills/>
     <Blogs/>

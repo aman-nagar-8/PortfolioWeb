@@ -27,14 +27,12 @@ const About_page = () => {
   const [message , setmessage] = useState("No Change");
 
   const User_data = async () => {
-    console.log("use function is working");
     const res = await fetch("/api/user", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
     const res_user = await res.json();
     setuser(res_user.data[0]);
-    console.log(res_user.data[0]);
   };
 
   const update_user = async () => {
@@ -49,7 +47,6 @@ const About_page = () => {
   };
 
   const update_button = async () => {
-    console.log("function runnn...");
      update_user();
   };
 
@@ -64,7 +61,6 @@ const About_page = () => {
     setmess(user.mess);
     setid(user._id);
     setmessage("Data loaded")
-    console.log("User updated:", user);
   }, [user]);
 
   return (

@@ -8,7 +8,7 @@ const Back_button = () => {
         router.back();
     }
   return (
-    <div onClick={handleback} className='w-8 h-8 cursor-pointer rounded-2xl flex justify-center items-center hover:bg-zinc-700' > <IoIosArrowRoundBack className='w-7 h-7' /></div>
+    <div onClick={handleback} className='w-8 h-8 mt-2 md:mt-0 cursor-pointer rounded-2xl flex justify-center items-center hover:bg-zinc-700' > <IoIosArrowRoundBack className='w-7 h-7' /></div>
   )
 }
 

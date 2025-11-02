@@ -1,27 +1,26 @@
-"use client";
+"use client"
 import React from "react";
 import Account_links from "./Account_links";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlinePhone } from "react-icons/md";
 import Button from "./Button";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import BlurText from "./motion/BlurText";
 import Particles from "@/component/motion/Bg_motion";
+import { useRouter } from "next/navigation";
 
-const About = () => {
+const About = ({data}) => {
   const router = useRouter();
-  const [md, setMd] = useState(false);
-  const [user, setuser] = useState({});
-  useEffect(() => {
-    if (window.innerWidth >= 768) {
-      setMd(true);
-    } else {
-      setMd(false);
-    }
-  }, []);
+  // const [user, setuser] = useState({});
+  const user = data;
 
+//   const res = await fetch(`${process.env.PORTFOLIO_BASE_URL}/api/user`, {
+//   cache: "no-store", // or next: { revalidate: 60 }
+// });
+// const data = await res.json();
+// const user = data.data[0];
+
+  
   const User_data = async () => {
     console.log("use function is working")
     const res = await fetch("/api/user", {
@@ -30,16 +29,7 @@ const About = () => {
     });
     const res_user = await res.json();
     setuser(res_user.data[0]);
-    console.log(res_user.data[0]);
   };
-  useEffect(() => {
-    User_data();
-  }, []);
-
-  useEffect(() => {
-  console.log("User updated:", user);
-}, [user]);
-
 
   const about_page = () => {
     router.push("/about");
@@ -52,7 +42,7 @@ const About = () => {
         particleSpread={10}
         speed={0.1}
         particleBaseSize={100}
-        moveParticlesOnHover={true}
+        moveParticlesOnHover={false}
         alphaParticles={false}
         disableRotation={false}
       />
@@ -107,7 +97,7 @@ const About = () => {
             </div>
           </div>
           <div className="ml-5 mt-2 md:ml-15 md:mt-8 mb-5">
-            <Account_links w={md ? "40px" : "28px"} h={md ? "30px" : "22px"} />
+            <Account_links />
           </div>
         </div>
         <div className="md:h-[92vh] w-[390px] flex mt-10 md:mt-40 items-center flex-col">

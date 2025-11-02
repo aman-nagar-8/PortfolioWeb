@@ -12,6 +12,7 @@ export async function GET() {
     } 
     catch(error){
         console.error("user get req error from api/user ", error);
+        return Response.json({message:"some error"})
     }
 }
 

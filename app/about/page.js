@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React from "react";
 import Account_links from "@/component/Account_links";
 import { CiLocationOn } from "react-icons/ci";
@@ -152,7 +152,7 @@ const page = () => {
             {"Let’s connect: "}{" "}
           </p>
           <div className="w-full flex justify-center mt-5">
-            <Account_links w={md ? "40px" : "28px"} h={md ? "30px" : "22px"} />
+            <Account_links />
           </div>
         </div>
         <div className="w-[100vw] md:w-[1100px] m-auto font-bold text-[18px]">
@@ -163,7 +163,9 @@ const page = () => {
             <Message_input />
           </div>
           <div className="mt-5 ml-5 md:ml-12">
-            <Show_message />
+            <div>
+              <Show_message />
+            </div>
           </div>
         </div>
       </div>

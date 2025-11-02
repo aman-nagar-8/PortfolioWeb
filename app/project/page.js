@@ -1,25 +1,13 @@
-"use client"
-import React, { useState } from 'react'
+import React from 'react'
 import Project_card from './Project_card'
-import { useEffect } from 'react'
 
+const Project_page = async () => {
+ const res = await fetch(`${process.env.PORTFOLIO_BASE_URL}/api/projects`, {
+  cache: "no-store", // or next: { revalidate: 60 }
+});
+const data = await res.json();
+const projects = data.projects
 
-const Project_page =  () => {
-  const [projects , setprojects] = useState([]);
- const get_project = async ()=>{
-   const res = await fetch("/api/projects", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    });
-    const res_project = await res.json();
-    console.log(res_project.projects); 
-    setprojects(res_project.projects)
- }
-
- useEffect(() => {
-   get_project();
- }, [])
- 
 
   return (
     <div className='w-full md:w-[1100px] m-auto md:p-8 ' > 
@@ -28,6 +16,7 @@ const Project_page =  () => {
       <h3 className='text-blue-400' >Showcase</h3>
     </div>
     <div className='py-7 flex-col md:flex-row flex flex-wrap gap-5  ' >
+      
       {projects.map((project , index)=>(
       <Project_card project={project} key={index}/>
       ))}
@@ -38,3 +27,4 @@ const Project_page =  () => {
 }
 
 export default Project_page;
+

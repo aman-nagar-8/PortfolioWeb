@@ -8,10 +8,14 @@ import { TbArticleFilled } from "react-icons/tb";
 import { MdArrowDropDown } from "react-icons/md";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { RiLogoutBoxLine } from "react-icons/ri";
+import { useState } from "react";
 
 const side_bar = () => {
   const route = useRouter();
+  const [logout_mess, setlogout_mess] = useState(false)
   const Logout = async () => {
+    setlogout_mess(true);
     await fetch("/api/auth/logout");
     route.push("/");
   };
@@ -44,7 +48,7 @@ const side_bar = () => {
       page_link: [
         { name: "All Projects", link: "/dashboard/allprojects" },
         { name: "Add Project", link: "/dashboard/addproject" },
-        { name: "Delete", link: "" },
+        { name: "Delete", link: "/dashboard/delete" },
       ],
     },
     {
@@ -91,7 +95,12 @@ const side_bar = () => {
             </div>
           </div>
         ))}
-        <h3 onClick={Logout} >Logout</h3>
+        <div onClick={Logout} className="w-full pl-5 py-1 text-green-700 text-sm font-medium hover:bg-zinc-200 flex gap-2 cursor-pointer">
+              <div className="flex justify-center items-center">
+             <RiLogoutBoxLine />
+              </div>
+              <div className="py-0.5 w-full">{logout_mess?"Loging out...":"Logout"}</div>
+            </div>
       </div>
     </div>
   );

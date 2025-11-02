@@ -10,10 +10,10 @@ export async function  POST(req) {
     try{
        await connectDB();
        const {username , password} = await req.json();
-       const user = await Login_User.findOne({username});
+       const user = await Login_User.findOne({username:username.trim()});
        if(!user) return Response({message:"User not found"} );
 
-       const valid = await bcrypt.compare(password , user.password);
+       const valid = await bcrypt.compare(password.trim() , user.password);
        if(!valid) return new NextResponse({message:" Invalid password"} , {status:401});
 
        const token = JWT.sign(

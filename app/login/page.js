@@ -79,7 +79,7 @@ export default function LoginPage() {
 
   const validate = () => {
     if (!username.trim()) return 'Username is required.';
-    if (!password) return 'Password is required.';
+    if (!password.trim()) return 'Password is required.';
     return '';
   };
 

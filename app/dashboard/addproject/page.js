@@ -31,27 +31,6 @@ const Addproject_page = () => {
 
   const [projects, setprojects] = useState([]);
 
-//   const get_project = async () => {
-//     const res = await fetch(`/api/projects/${params.project_id}`, {
-//       method: "GET",
-//       headers: { "Content-Type": "application/json" },
-//     });
-//     const res_project = await res.json();
-//     setprojects(res_project.project);
-//   };
-
-
-//   useEffect(() => {
-//     settitle(projects?.title || "");
-//     setintro(projects?.intro || "");
-//     setdemo(projects?.demo || "");
-//     setgithub(projects?.github || "");
-//     setcreated_At(projects?.created_At || "");
-//     setfeatures(projects?.features || []);
-//     settackstack(projects?.techstack || []);
-//     settitle_img(projects?.title_img || "");
-//     setimages(projects?.images || []);
-//   }, [projects]);
 
   const add_ts_button = () => {
     if (new_ts.trim() == "") return;
@@ -123,7 +102,6 @@ const Addproject_page = () => {
       body: JSON.stringify({title , intro , techstack , github , demo , title_img , images , features , created_At})
      });
       const updated_res = await res.json();
-      console.log(updated_res);
       setmessage(updated_res.message);
       setprojects(updated_res.project);
  }

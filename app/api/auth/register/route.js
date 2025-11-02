@@ -4,6 +4,11 @@ import Login_User from "@/models/user_login";
 
 export async function POST(req) {
     try{
+
+        
+        if(req) return Response.json({success: false , message:"You can not register"})
+
+
         await connectDB();
         const { username, password } = await req.json();
       

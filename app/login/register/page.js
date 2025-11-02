@@ -36,8 +36,11 @@ export default function RegisterPage() {
 
       const data = await res.json();
       if (!res.ok) throw new Error(data?.message || 'Registration failed');
-
-      setSuccess('Registered successfully. You can now log in.');
+      if(data?.success){
+        setSuccess('Registered successfully. You can now log in.');
+      } else {
+        setError(data?.message)
+      }
       setUsername('');
       setPassword('');
     } catch (err) {

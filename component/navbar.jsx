@@ -2,7 +2,7 @@
 import React from "react";
 import Button from "./Button";
 import Link from "next/link";
-import { useState , useRef} from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Logo_action from "./logo_action";
 import { IoReorderThreeOutline } from "react-icons/io5";
@@ -21,40 +21,50 @@ const Navbar = () => {
   const [nav_window, set_nav_window] = useState(true);
   function mobile_navbar_action() {
     set_nav_window(!nav_window);
-  } 
-//  useEffect(() => {
-//      const handleclick = (event) => {
-//        if (popupRef.current && !popupRef.current.contains(event.target)) {
-//         set_nav_window(true);
-//       }
-//      }
-//    if(!nav_window){
-//       document.addEventListener("click", handleclick)
-//    }
-//    return () => {
-//     document.removeEventListener("click", handleclick)
-//    }
-//   } , [!nav_window])
-const resume = ()=>{
-    console.log("bhai resume ")
-}
+  }
+  //  useEffect(() => {
+  //      const handleclick = (event) => {
+  //        if (popupRef.current && !popupRef.current.contains(event.target)) {
+  //         set_nav_window(true);
+  //       }
+  //      }
+  //    if(!nav_window){
+  //       document.addEventListener("click", handleclick)
+  //    }
+  //    return () => {
+  //     document.removeEventListener("click", handleclick)
+  //    }
+  //   } , [!nav_window])
+  const resume = () => {
+    console.log("bhai resume ");
+  };
 
   const UrlLinkes = [
-    { name: "Home", link: "/" ,  },
-    { name: "About", link: "/about" , },
-    { name: "Project", link: "/project" },
-    { name: "Blogs", link: "/blog" },
-    { name: "Contact", link: "/contact" },
+    { name: "Home", link: "/", pages: "$" },
+    { name: "About", link: "/about", pages: "$" },
+    { name: "Project", link: "/project", pages: "/project" },
+    { name: "Blogs", link: "/blog", pages: "/blog" },
+    { name: "Contact", link: "/contact", pages: "$" },
   ];
   return (
     <>
-      <div className={`bg-white/80 dark:bg-black/80 w-[100vw] md:w-[99vw] border-b-[1px] border-b-zinc-300 dark:border-b-zinc-700  z-50 flex md:justify-around items-center sticky top-0 ${nav_window?"":"bg-zinc/900"}`}>
+      <div
+        className={`bg-white/80 dark:bg-black/80 w-[100vw] md:w-[99vw] border-b-[1px] border-b-zinc-300 dark:border-b-zinc-700  z-50 flex md:justify-around items-center sticky top-0 ${
+          nav_window ? "" : "bg-zinc/900"
+        }`}
+      >
         <div
           onClick={logo_action}
           className="cursor-pointer w-30 h-10  md:w-37.5 md:h-10  relative"
         >
           {" "}
-          <Image priority={false} fill src={"/logo-2.png"} alt="Logo" className="invert-100 dark:invert-0" />
+          <Image
+            priority={false}
+            fill
+            src={"/logo-2.png"}
+            alt="Logo"
+            className="invert-100 dark:invert-0"
+          />
         </div>
         <div className="hidden md:flex">
           <div className="flex ">
@@ -62,7 +72,11 @@ const resume = ()=>{
               <Link
                 href={link.link}
                 key={index}
-                className={` ${pathname === link.link ?"text-black dark:text-white":"text-zinc-600 dark:text-zinc-400"} m-2 font-light hover:text-black dark:hover:text-white`}
+                className={`${
+                  pathname == link.link
+                    ? "text-black dark:text-white "
+                    : "text-zinc-600 dark:text-zinc-400 "
+                }  m-2 font-light hover:text-black dark:hover:text-white`}
               >
                 {link.name}
               </Link>
@@ -97,21 +111,28 @@ const resume = ()=>{
       >
         {logo ? <Logo_action /> : ""}
       </div>
-      <div className="relative w-full" >
+      <div className="relative w-full">
         <div
           className={`transition-all overflow-hidden  duration-500 ease-in-out fixed top-0 left-0 z-40 w-[100vw] bg-zinc-300/97 dark:bg-zinc-900/97 ${
-            nav_window ? " h-0 -translate-y-10 "  : "h-60  translate-y-10"
+            nav_window ? " h-0 -translate-y-10 " : "h-60  translate-y-10"
           }`}
         >
           <div className="flex flex-col fixed right-5">
             {UrlLinkes.map((link, index) => (
-              <div key={index}  className={` m-auto my-1 p-1 px-5 w-[90vw] text-end `} >
-              <Link
-                href={link.link}
-                className={`${pathname === link.link ?"text-zinc-700 dark:text-white font-bold":"text-zinc-600 dark:text-zinc-400"} `}
+              <div
+                key={index}
+                className={` m-auto my-1 p-1 px-5 w-[90vw] text-end `}
               >
-                {link.name}
-              </Link>
+                <Link
+                  href={link.link}
+                  className={`${
+                    pathname === link.link
+                      ? "text-zinc-700 dark:text-white font-bold"
+                      : "text-zinc-600 dark:text-zinc-400"
+                  } `}
+                >
+                  {link.name}
+                </Link>
               </div>
             ))}
           </div>
