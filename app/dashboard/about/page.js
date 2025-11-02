@@ -64,7 +64,7 @@ const About_page = () => {
   }, [user]);
 
   return (
-    <div className="text-zinc-800 pl-5">
+    <div className="text-zinc-800 mt-10 mb-15 md:mb-0 md:mt-0 pl-5">
       <div className="p-2 font-medium">
         <h3><Link href={"/dashboard"} className="hover:text-green-700" >Home</Link>
           {" > About"}</h3>
@@ -75,10 +75,10 @@ const About_page = () => {
             e.preventDefault();
             update_button();
           }}
-          className="flex gap-5 "
+          className="flex flex-col md:flex-row gap-5 "
         >
           <div>
-            <div className="border border-zinc-300 w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
               <p>welcome message -</p>
               <input
                 value={title}
@@ -87,18 +87,18 @@ const About_page = () => {
                 type="text"
               />
             </div>
-            <div className="border border-zinc-300 w-[50vw] text-zinc-600 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[50vw] text-zinc-600 mt-5 p-4 rounded-lg">
               <p>Introduction -</p>
               <textarea
                 value={intro}
                 onChange={(e) => {
                   setintro(e.target.value);
                 }}
-                className="bg-zinc-100 w-[44vw] h-25 rounded-lg border-1 mt-3 text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
+                className="bg-zinc-100 w-70 md:w-[44vw] h-50 md:h-25 rounded-lg border-1 mt-3 text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
                 type="text"
               />
             </div>
-            <div className="border border-zinc-300 w-[50vw] text-zinc-600 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[50vw] text-zinc-600 mt-5 p-4 rounded-lg">
               <p>Location -</p>
               <input
                 value={location}
@@ -109,7 +109,7 @@ const About_page = () => {
                 type="text"
               />
             </div>
-            <div className="border border-zinc-300 w-[50vw] text-zinc-600 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[50vw] text-zinc-600 mt-5 p-4 rounded-lg">
               <p>availability -</p>
               <input
                 value={mess}

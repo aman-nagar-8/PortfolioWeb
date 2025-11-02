@@ -112,7 +112,7 @@ const Addproject_page = () => {
  }
 
   return (
-    <div className="text-zinc-800 pl-5">
+    <div className="text-zinc-800 mt-10 md-mt-0 pl-5">
       <div className="p-2 font-medium">
         <h3>
           <Link
@@ -125,9 +125,9 @@ const Addproject_page = () => {
         </h3>
       </div>
       <div className="flex gap-5">
-        <form onSubmit={(e)=>{e.preventDefault(); update_project_btn();}} action="" className="flex gap-5">
+        <form onSubmit={(e)=>{e.preventDefault(); update_project_btn();}} action="" className="flex flex-col md:flex-row gap-5">
           <div>
-            <div className="border border-zinc-300 w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
               <p>Project Name -</p>
               <input
                 value={title}
@@ -137,16 +137,16 @@ const Addproject_page = () => {
                 placeholder="title..."
               />
             </div>
-            <div className="border border-zinc-300 w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
               <p>Project intro -</p>
               <textarea
                 value={intro}
                 onChange={(e) => setintro(e.target.value)}
-                className="bg-zinc-100 rounded-lg w-160 h-35 border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
+                className="bg-zinc-100 rounded-lg w-70 md:w-160 h-45 md:h-35 border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
                 type="text"
               />
             </div>
-            <div className="border border-zinc-300 w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
               <p>Github Link -</p>
               <input
                 value={github}
@@ -155,7 +155,7 @@ const Addproject_page = () => {
                 type="text"
               />
             </div>
-            <div className="border border-zinc-300 w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[50vw] text-zinc-500 mt-5 p-4 rounded-lg">
               <p>Demo Link -</p>
               <input
                 value={demo}
@@ -164,7 +164,7 @@ const Addproject_page = () => {
                 type="text"
               />
             </div>
-            <div className="border border-zinc-300 w-[50vw] mb-10 text-zinc-500 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[50vw] mb-10 text-zinc-500 mt-5 p-4 rounded-lg">
               <div className="flex justify-between">
                 <p>Features -</p>
                 <div className="w-10 h-8  border border-zinc-400  rounded-lg flex justify-center items-center ">
@@ -174,7 +174,7 @@ const Addproject_page = () => {
                   />
                 </div>
               </div>
-              <div className="flex w-full flex-wrap  gap-2 border mt-1.5 border-zinc-300 p-3 rounded-lg">
+              <div className="flex flex-col md:flex-row w-full flex-wrap  gap-2 border mt-1.5 border-zinc-300 p-3 rounded-lg">
                 {features.map((feature, index) => (
                   <div
                     onClick={() => onclick_on_features(index)}
@@ -193,21 +193,21 @@ const Addproject_page = () => {
               <input
                 value={new_features_title}
                 onChange={(e) => setnew_features_title(e.target.value)}
-                className="bg-zinc-100 rounded-lg w-80 ml-2 h-12 border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
+                className="bg-zinc-100 rounded-lg w-70 md:w-80 md:ml-2 h-12 border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
                 type="text"
                 placeholder="add title..."
               />
               <textarea
                 value={new_features_detail}
                 onChange={(e) => setnew_features_detail(e.target.value)}
-                className="bg-zinc-100 rounded-lg w-120 h-30 ml-2  border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
+                className="bg-zinc-100 rounded-lg w-70 md:w-120 h-40 md:h-30 md:ml-2  border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
                 type="text"
                 placeholder="add detail..."
               />
               <button
                 type="button"
                 onClick={add_features_button}
-                className="w-15 py-2 bg-green-400 rounded-lg cursor-pointer  text-zinc-800 ml-3"
+                className="w-15 py-2 bg-green-400 rounded-lg cursor-pointer  text-zinc-800 md:ml-3"
               >
                 Add
               </button>
@@ -230,7 +230,7 @@ const Addproject_page = () => {
             </div>
           </div>
           <div>
-            <div className="border border-zinc-300 w-[400px] text-zinc-500 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[400px] text-zinc-500 md:mt-5 p-4 rounded-lg">
               <p>Created At -</p>
               <input
                 value={created_At}
@@ -239,7 +239,7 @@ const Addproject_page = () => {
                 type="text"
               />
             </div>
-            <div className="border border-zinc-300 w-[400px] text-zinc-500 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[400px] text-zinc-500 mt-5 p-4 rounded-lg">
               <p>Profile Image URI -</p>
               <input
                 value={title_img}
@@ -248,7 +248,7 @@ const Addproject_page = () => {
                 type="text"
               />
             </div>
-            <div className="border border-zinc-300 w-[400px] text-zinc-500 mt-5 p-4 rounded-lg">
+            <div className="border border-zinc-300 w-[90vw] md:w-[400px] text-zinc-500 mt-5 p-4 rounded-lg">
               <div className="flex justify-between">
                 <p>Tech Stack -</p>
                 <div className="w-10 h-8  border border-zinc-400  rounded-lg flex justify-center items-center ">
@@ -295,7 +295,7 @@ const Addproject_page = () => {
                 </button>
               )}
             </div>
-            <div className="border border-green-300 p-2 mt-4 rounded-lg" >  
+            <div className="border border-green-300 p-2 mb-15 md:mb-0 mt-4 rounded-lg" >  
               <div className="flex gap-3 ">
                 <button
                   type="submit"
@@ -310,7 +310,7 @@ const Addproject_page = () => {
                   />
                 </div>
               </div>
-              <div className="w-80 mt-8 rounded-lg h-25 border p-2 border-zinc-200">
+              <div className=" w-70 md:w-80 mt-8 rounded-lg h-25 border p-2 border-zinc-200">
                 {message}
               </div>
             </div>

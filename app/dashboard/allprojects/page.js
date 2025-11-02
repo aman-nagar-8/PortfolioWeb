@@ -22,7 +22,7 @@ const Allproject_page = () => {
   }, []);
 
   return (
-    <div className="text-zinc-800 pl-5">
+    <div className="text-zinc-800 md:pl-5 mt-10 md:mt-0 mb-10">
       <div className="p-2 font-medium">
         <h3>{"Project > AllProjects"}</h3>
       </div>

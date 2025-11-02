@@ -10,12 +10,12 @@ const projects = data.projects
 
 
   return (
-    <div className='w-full md:w-[1100px] m-auto md:p-8 ' > 
+    <div className='w-full md:w-[1100px] m-auto md:p-8 mb-15' > 
     <div className='flex gap-2 text-2xl font-bold mt-5 md:mt-0 ' >
       <h2>Project</h2>
       <h3 className='text-blue-400' >Showcase</h3>
     </div>
-    <div className='py-7 flex-col md:flex-row flex flex-wrap gap-5  ' >
+    <div className='py-7 items-center flex-col md:flex-row flex flex-wrap gap-5  ' >
       
       {projects.map((project , index)=>(
       <Project_card project={project} key={index}/>

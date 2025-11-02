@@ -36,7 +36,7 @@ export async function POST(req) {
 
     if (!cloudinaryResult) {
         return NextResponse.json(
-            { success: false, message: "Upload failed", error: error.message },
+            { success: false, message: "Upload failed"},
             { status: 500 }
         );
     }
@@ -53,7 +53,7 @@ export async function POST(req) {
   } catch (error) {
     console.error("File upload error:", error);
     return NextResponse.json(
-      { success: false, message: "Upload failed", error: error.message },
+      { success: false, message: "Upload failed", error: error},
       { status: 500 }
     );
   }

@@ -9,6 +9,7 @@ import { MdArrowDropDown } from "react-icons/md";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { IoReorderThreeOutline } from "react-icons/io5";
 import { useState } from "react";
 
 const side_bar = () => {
@@ -61,11 +62,20 @@ const side_bar = () => {
       ],
     },
   ];
+  
+  const [Mobile_side, setMobile_side] = useState(false)
+  const Mobile_side_bar = ()=>{
+     setMobile_side(!Mobile_side);
+  }
 
   return (
-    <div className="w-[250px] h-full bg-zinc-100 text-zinc-800  border border-zinc-300 py-3 sticky top-5 left-0">
+    <div className="relative" >
+     <div className="relative" >
+      <IoReorderThreeOutline onClick={Mobile_side_bar} className="md:hidden w-12 h-12 z-30 text-zinc-800 fixed top-10 left-2" />
+     </div>
+    <div className={`${Mobile_side ? "":"hidden"} sm:absolute md:block  w-[250px] z-20 bg-zinc-100 text-zinc-800  border border-zinc-300 py-3 md:sticky md:top-5 md:left-0"`}>
       <div>
-        <h3 className="text-2xl w-full pl-5 pt-1 pb-3 border-b border-zinc-300 font-bold ">
+        <h3 className="text-2xl mt-10 md:mt-0 w-full pl-5 pt-1 pb-3 border-b border-zinc-300 font-bold ">
           DashBoard
         </h3>
       </div>
@@ -84,8 +94,8 @@ const side_bar = () => {
             <div>
               {links.page_link.map((link, index) => (
                 <div
-                  key={index}
-                  className={`${
+                key={index}
+                className={`${
                     pathname === link.link ? "bg-zinc-200" : ""
                   } w-full  pl-10 py-2 text-[12px] hover:bg-zinc-200 cursor-pointer`}
                 >
@@ -102,6 +112,7 @@ const side_bar = () => {
               <div className="py-0.5 w-full">{logout_mess?"Loging out...":"Logout"}</div>
             </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -38,7 +38,7 @@ const Allprojects = data.projects
         {Allprojects.map((card, index) => (
           <Card key={index}>
             <div
-              className={`h-[250px] md:h-[230px] relative overflow-hidden`}
+              className={`h-[230px] md:h-[230px] relative overflow-hidden`}
             >
               <Image
                 fill

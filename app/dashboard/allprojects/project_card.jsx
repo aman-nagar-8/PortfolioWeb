@@ -11,7 +11,7 @@ const project_card = ({project}) => {
     }
   return (
     <div onClick={project_expl_page} className='w-[350px] md:w-[380px]    rounded-xl cursor-pointer bg-zinc-100 hover:bg-zinc-200  p-3' >
-      <div className='w-full h-[230px]  rounded-xl relative' >
+      <div className='w-full h-[230px] z-10 rounded-xl relative' >
         <Image fill src={project?.title_img} alt='img' className='rounded-xl' />
 
       </div>
