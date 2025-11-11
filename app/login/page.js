@@ -102,8 +102,11 @@ export default function LoginPage() {
 
       const data = await res.json();
       if (!res.ok) throw new Error(data?.message || 'Login failed');
-
-      setSuccess('Login successful! Redirecting...');
+      if(data?.success){
+        setSuccess('Login successful! Redirecting...');
+      } else {
+        setSuccess('Login successful! Redirecting...');
+      }
       setUsername('');
       setPassword('');
       router.push("/dashboard")

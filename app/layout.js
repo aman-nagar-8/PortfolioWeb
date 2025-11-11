@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Aman Portfolio",
   description: "A Portfolio website of Aman Nagar",
+  verification: {
+    google: "36c2_gS965wsrumHSor0n2bjd7AAsVCpDmo-Y2ezwNI",
+  },
 };
 
 export default function RootLayout({ children }) {
