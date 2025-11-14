@@ -10,7 +10,7 @@ const project_card = ({ project }) => {
   return (
     <div
       onClick={project_expl_page}
-      className="w-[350px] md:w-[470px]  dark:bg-zinc-800 md:bg-zinc-950 rounded-xl cursor-pointer bg-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 p-3"
+      className="w-[350px] md:w-[470px] bg-zinc-200 dark:bg-zinc-800  rounded-xl cursor-pointer  hover:bg-zinc-300 dark:hover:bg-zinc-800 p-3"
     >
       <div className="w-full h-[270px] bg-pink-300 rounded-xl relative">
         <Image fill src={project?.title_img} alt="img" className="rounded-xl" />
@@ -23,14 +23,14 @@ const project_card = ({ project }) => {
           {project.techstack.map((tech, index) => (
             <div
               key={index}
-              className="px-2 py-1  border border-zinc-300 text-zinc-300  rounded-lg"
+              className="px-2 py-1  border border-zinc-600 dark:border-zinc-300 text-zinc-600 dark:text-zinc-300  rounded-lg"
             >
               {tech}
             </div>
           ))}
         </div>
         <div>
-          <div className="text-[12px] text-zinc-300">
+          <div className="text-[12px] text-zinc-600 dark:text-zinc-300">
             <p>{project?.intro}</p>
           </div>
         </div>

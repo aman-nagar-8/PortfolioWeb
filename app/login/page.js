@@ -103,9 +103,9 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data?.message || 'Login failed');
       if(data?.success){
-        setSuccess('Login successful! Redirecting...');
+        setSuccess(data?.message);
       } else {
-        setSuccess('Login successful! Redirecting...');
+        setError(data?.message);
       }
       setUsername('');
       setPassword('');

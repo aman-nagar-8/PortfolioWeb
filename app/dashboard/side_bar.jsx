@@ -57,7 +57,7 @@ const side_bar = () => {
       icon: <TbArticleFilled />,
       page_link: [
         { name: "All Blogs", link: "" },
-        { name: "Add Blog", link: "" },
+        { name: "Add Blog", link: "/dashboard/addblog" },
         { name: "Delete", link: "" },
       ],
     },

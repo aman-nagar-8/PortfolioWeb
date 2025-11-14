@@ -9,7 +9,7 @@ const project_section = ({feature}) => {
        </div>
        <div className='w-100 ' >
             <h4 className='font-medium text-sm md:text-[16px]' >{feature?.title}</h4>
-             <p className='text-zinc-400 text-[13px] md:font-sm' >{feature?.detail}</p>
+             <p className='text-zinc-700 dark:text-zinc-400 text-[13px] md:font-sm' >{feature?.detail}</p>
        </div>
     </div>
   )

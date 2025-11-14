@@ -23,7 +23,7 @@ const page = async ({ params }) => {
         <div className="text-xl md:text-2xl font-bold mt-3">
           <h2 className="">{project?.title} </h2>
         </div>
-        <div className="mt-2 text-sm text-zinc-300">
+        <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
           Created At - {project?.created_At}
         </div>
         <div className="flex gap-3 mt-3">
@@ -37,7 +37,7 @@ const page = async ({ params }) => {
         <div className="text-zinc-400 mb-3 md:mb-0">
           GitHub Link -
           <Link
-            className="text-blue-300 ml-2"
+            className="text-blue-400 ml-2"
             target="_blank"
             rel="noopener noreferrer"
             href={project?.github || ""}
@@ -48,7 +48,7 @@ const page = async ({ params }) => {
         <div className="text-zinc-400">
           Demo Link -
           <Link
-            className="text-blue-300 ml-2"
+            className="text-blue-400 ml-2"
             target="_blank"
             rel="noopener noreferrer"
             href={project?.demo || ""}
@@ -65,12 +65,12 @@ const page = async ({ params }) => {
           </div>
         ))}
       </div>
-      <div className="mt-5 text-sm md:text-[16px] text-zinc-300">
-        <h2 className="text-zinc-500 mb-2 mr-2 ">About - </h2>
+      <div className="mt-5 text-sm md:text-[16px] text-zinc-600 dark:text-zinc-300">
+        <h2 className="text-zinc-700 dark:text-zinc-500 mb-2 mr-2 ">About - </h2>
         {project?.intro}
       </div>
       <div className=" mt-5 mb-10 ">
-        <h2 className="text-zinc-500 mb-4 ">Features - </h2>
+        <h2 className= "text-zinc-700 dark:text-zinc-500 mb-4 ">Features - </h2>
         <div className="flex flex-wrap gap-5 md:gap-10">
           {project.features.map((feature, index) => (
             <Project_section key={index} feature={feature} />

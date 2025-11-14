@@ -15,7 +15,7 @@ const projects = data.projects
       <h2>Project</h2>
       <h3 className='text-blue-400' >Showcase</h3>
     </div>
-    <div className='py-7 items-center flex-col md:flex-row flex flex-wrap gap-5  ' >
+    <div className='py-7  flex-col md:flex-row flex flex-wrap gap-5  ' >
       
       {projects.map((project , index)=>(
       <Project_card project={project} key={index}/>

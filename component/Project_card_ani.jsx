@@ -49,7 +49,7 @@ const Allprojects = data.projects
             </div>
             <div className='p-2.5' >
                 <h2 className="font-bold md:text-[18px]" >{card?.title}</h2>
-                <p className="text-[12px] w-full line-clamp-4 text-zinc-300" >{card?.intro} </p>
+                <p className="text-[12px] w-full line-clamp-4 text-zinc-600 dark:text-zinc-300" >{card?.intro} </p>
               </div>
           </Card>
         ))}
