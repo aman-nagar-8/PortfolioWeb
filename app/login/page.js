@@ -97,19 +97,19 @@ export default function LoginPage() {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username:username.trim(), password:password.trim() }),
       });
 
       const data = await res.json();
       if (!res.ok) throw new Error(data?.message || 'Login failed');
       if(data?.success){
         setSuccess(data?.message);
+        router.push("/dashboard")
       } else {
         setError(data?.message);
       }
       setUsername('');
       setPassword('');
-      router.push("/dashboard")
     } catch (err) {
       setError(err.message || 'Something went wrong');
     } finally {

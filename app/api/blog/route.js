@@ -15,10 +15,10 @@ export async function GET() {
 export async function POST(req) {
     try{
        await connectDB();
-       const {title , intro , tag , title_img , images , topics , created_At} = await req.json();
-       const new_blog = new Blog({title , intro , tag , title_img , images , topics , created_At});
+       const {title , intro , tag , title_img , images , topic , created_At} = await req.json();
+       const new_blog = new Blog({title , intro , tag , title_img , images , topics : topic , created_At});
        await new_blog.save();
-       return Response.json({mess:"new Blog added!"});
+       return Response.json({message:"new Blog added!"});
     }
     catch(error){
         console.error("POST req error in api/blog : " , error);

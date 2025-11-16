@@ -12,6 +12,7 @@ const Addblog_page = () => {
   const [title_img, settitle_img] = useState([]);
   const [topic, settopic] = useState([]);
   const [created_At, setcreated_At] = useState("");
+  const [images, setimages] = useState([])
 
   const [new_tag, setnew_tag] = useState("");
   const [tag_delete_btn_diseble, settag_delete_btn_diseble] = useState(true);
@@ -26,19 +27,28 @@ const Addblog_page = () => {
 
 
   const update_blog = async ()=>{
-  const res = await fetch(`/api/addblog` , {
+    if(title === ""){
+      setmessage("Title is required ")
+      return;
+    }
+    if(intro === ""){
+      setmessage("Intro is required ")
+      return;
+    }
+  const res = await fetch("/api/blog" , {
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({title , intro , topic  , tag , title_img , created_At})
+      body: JSON.stringify({title , intro , topic  , tag , images , title_img , created_At})
      });
       const updated_res = await res.json();
-      setmessage(updated_res.message);
+      setmessage(updated_res?.message);
  }
 
 
-  const add_blog_btn = () => {
-    setmessage("Project Undating...")
-    //   await update_blog();
+  const add_blog_btn = async () => {
+    setmessage("Project Updating...")
+     await update_blog();
+     
   };
 
   const add_tag_button = () => {
@@ -120,7 +130,7 @@ const Addblog_page = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            add_blog_btn;
+            add_blog_btn();
           }}
           action=""
           className="flex flex-col md:flex-row gap-5"
@@ -176,14 +186,14 @@ const Addblog_page = () => {
               <input
                 value={new_topic_title}
                 onChange={(e) => setnew_topic_title(e.target.value)}
-                className="bg-zinc-100 rounded-lg w-70 md:w-80 md:ml-2 h-12 border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
+                className="bg-zinc-100 rounded-lg w-70 md:w-90 md:ml-2 h-12 border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
                 type="text"
                 placeholder="add title..."
               />
               <textarea
                 value={new_topic_detail}
                 onChange={(e) => setnew_topic_detail(e.target.value)}
-                className="bg-zinc-100 rounded-lg w-70 md:w-120 h-40 md:h-30 md:ml-2  border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
+                className="bg-zinc-100 rounded-lg w-70 md:w-145 h-40 md:h-30 md:ml-2  border-1 mt-3  text-zinc-800 border-zinc-400 focus:ring-zinc-500 p-3 focus:outline-none"
                 type="text"
                 placeholder="add detail..."
               />
@@ -300,7 +310,7 @@ const Addblog_page = () => {
                 </div>
               </div>
             </div>
-            <div className="border border-green-300 p-2 mb-15 md:mb-0 mt-4 rounded-lg">
+            <div className="border border-green-300 p-2 mb-15 mt-4 rounded-lg">
               <div className="flex gap-3 ">
                 <button
                   type="submit"
