@@ -3,7 +3,7 @@ import { jwtVerify } from "jose";
 
 const SECRET = process.env.JWT_key;
 
-export async function middleware(req) {
+export async function proxy(req) {
   const { pathname } = req.nextUrl;
   if (req.method == "POST") {
     const token = req.cookies.get("token")?.value;
