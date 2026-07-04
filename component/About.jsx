@@ -46,8 +46,8 @@ const About = ({data}) => {
         alphaParticles={false}
         disableRotation={false}
       />
-      <div className="md:h-[92vh] w-[100vw] md:w-[1100px] m-auto flex flex-col-reverse md:flex-row justify-between z-10 border-zinc-700">
-        <div className="md:h-[92vh] w-[100vw] md:w-[700px] flex flex-col">
+      <div className="w-full  max-w-[1100px] mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-8 h-full md:h-[92vh] px-4">
+        <div className="md:h-[92vh] w-full max-w-[700px] flex flex-col">
           <div>
             <h1 className="font-bold text-[25px] md:text-[40px]  mt-10  md:mt-35 mb-5 ml-5">
               <BlurText
@@ -103,7 +103,7 @@ const About = ({data}) => {
         <div className="md:h-[92vh] w-[390px] flex mt-10 md:mt-40 items-center flex-col">
           <div className="flex ">
             <div className="w-55 h-60 border-2 border-red rounded-tl-[37px] overflow-hidden">
-              <Image width={220} height={240} src={"/P.jpg"} alt="Profile" />
+              <Image width={220} height={240} src={"/p-bgr.png"} alt="Profile" />
             </div>
             <div className="w-7 h-55 mt-[29px] ml-2 bg-zinc-500"></div>
           </div>

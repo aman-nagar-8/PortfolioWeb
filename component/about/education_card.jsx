@@ -1,23 +1,48 @@
-import React from "react";
+import { FaGraduationCap } from "react-icons/fa";
+import { MdCalendarMonth } from "react-icons/md";
+import Image from "next/image";
 
-const education_card = ({edu}) => {
+const EducationCard = ({ edu }) => {
   return (
-    <div className="w-[85vw] md:w-[30vw] h- md:h mx-auto md:ml-15 bg-zinc-200 dark:bg-zinc-700 rounded-[10px] my-5 p-2">
-      <div className="flex relative">
-        <h3 className="text-[16px] font-bold">{edu.name}</h3>
-        <p className="text-[14px] text-green-500  absolute top-1.5 right-5">
-         {edu.year}
-        </p>
+    <div className="group w-full  rounded-2xl border border-zinc-700/50 bg-zinc-900 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-600">
+      
+      {/* Header */}
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex gap-3">
+          <div className="h-10 w-10 rounded-xl  flex items-center justify-center">
+            <Image src={edu.image} alt={edu.name} width={40} height={40} />
+          </div>
+
+          <div>
+            <h3 className="text-base font-semibold text-white">
+              {edu.name}
+            </h3>
+
+            <p className="text-xs text-zinc-400">
+              {edu.school}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-1 rounded-full bg-green-500/10 px-3 py-1 text-xs text-green-400">
+          <MdCalendarMonth />
+          {edu.year}
+        </div>
       </div>
-      <p className="font-normal text-[14px] text-zinc-800 dark:text-zinc-300">
-        {edu.school}
-      </p>
-      <p className="font-normal text-[14px] text-zinc-500 dark:text-zinc-400">
+
+      {/* Details */}
+      <p className="mt-4 text-sm leading-6 text-zinc-300">
         {edu.det}
       </p>
-      <p className="text-[15px] text-zinc-600 dark:text-zinc-300">{edu.mark}</p>
+
+      {/* Marks / CGPA */}
+      <div className="mt-4 inline-flex items-center rounded-lg border border-blue-500/20 bg-blue-500/10 px-3 py-2">
+        <span className="text-sm font-medium text-blue-400">
+          {edu.mark}
+        </span>
+      </div>
     </div>
   );
 };
 
-export default education_card;
+export default EducationCard;

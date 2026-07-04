@@ -26,7 +26,6 @@ const show_message = () => {
   //     get_data();
   //   }, []);
 
-
   return (
     <div>
       <div>
@@ -54,25 +53,25 @@ const show_message = () => {
           : all_mess.map((mess, index) => (
               <div
                 key={index}
-                className="w-80 md:w-90 bg-zinc-200 dark:bg-zinc-900 mr-5 p-3 rounded-xl"
+                className="rounded-xl border min-w-80 border-zinc-800 bg-zinc-900 p-4"
               >
-                <div className="pb-3 flex gap-2 justify-between">
-                  <div className="flex gap-2" >
-                    <div className="w-8 h-8 rounded-lg bg-zinc-400 dark:bg-zinc-500">
-                     <Image src={"/people.png"} alt="Profile" width={30} height={30} className="dark:invert-20 invert-80 text-zinc-500" />
-                    </div>
+                <div className="flex items-start justify-between">
+                  <div className="flex gap-3">
+                    <div className="h-8 w-8 rounded-full bg-zinc-700" />
+
                     <div>
-                      <h4 className="font-bold text-sm">{mess.name}</h4>
-                      <h3 className="font-normal text-[10px] text-zinc-400">
+                      <h4 className="text-sm font-semibold">{mess.name}</h4>
+
+                      <p className="text-xs text-zinc-500">
                         {dayjs(mess.date).format("DD MMM YYYY")}
-                      </h3>
+                      </p>
                     </div>
                   </div>
+
                   <Add_like id={mess._id} like={mess.like} />
                 </div>
-                <div>
-                  <p className="font-normal text-sm">{mess.mess}</p>
-                </div>
+
+                <p className="mt-3 text-sm text-zinc-300">{mess.mess}</p>
               </div>
             ))}
       </div>

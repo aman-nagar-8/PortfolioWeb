@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const project_card = ({ project }) => {
   const project_expl_page = () => {
-    redirect(`/project/${project._id}`);
+    redirect(`/project/${project.slug}`);
   };
   return (
     <div
@@ -17,7 +17,7 @@ const project_card = ({ project }) => {
       </div>
       <div>
         <div className="text-lg font-bold my-1">
-          <h3>{project?.title}</h3>
+          <h3>{project?.slug}</h3>
         </div>
         <div className="text-[11px] my-2 flex gap-2 flex-wrap">
           {project.techstack.map((tech, index) => (

@@ -19,6 +19,7 @@ const project_schema = new mongoose.Schema({
     created_At : {
         type : String,
     },
+    slug: { type: String, unique: true },
 });
 
 const project = mongoose.models.project || mongoose.model("project" , project_schema)

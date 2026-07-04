@@ -6,7 +6,7 @@ const About_client = async () => {
   cache: "no-store", // or next: { revalidate: 60 }
 });
 const data = await res.json();
-const user = data.data[0];
+const user = data?.data[0];
   return <About data={user}/>
 }
 

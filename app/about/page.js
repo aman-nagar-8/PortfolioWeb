@@ -5,12 +5,14 @@ import { CiLocationOn } from "react-icons/ci";
 import { MdOutlinePhone } from "react-icons/md";
 import Image from "next/image";
 import Education_card from "@/component/about/education_card";
-import Message_input from "./Message_input";
-import Show_message from "./show_message";
+import Message_Input from "./Message_input";
+import Show_Message from "./show_message";
 import BlurText from "@/component/motion/BlurText";
+import HackathonCard from "@/component/about/Hackathon_card";
+import OpenSourceCard from "@/component/about/OpenSourceCard";
+import CertificateCard from "./CertificateCard";
 
 const page = () => {
-  const md = true;
   const educations = [
     {
       name: "B-Tech(CSE)",
@@ -18,6 +20,7 @@ const page = () => {
       school: "CDGI Indore - RGPV University",
       det: "Currently pursuing 2nd year with a focus on core computer science concepts like DSA, DBMS, and OOPs",
       mark: "CGPA - 7.0",
+      image: "/CDGI-Logo.png",
     },
     {
       name: "12th",
@@ -25,6 +28,7 @@ const page = () => {
       school: "SSVM Rajgarh - MP Board ",
       det: "",
       mark: "CGPA - 8.74",
+      image: "/SSVM-Logo.png",
     },
     {
       name: "10th",
@@ -32,8 +36,73 @@ const page = () => {
       school: "SSVM Rajgarh - MP Board ",
       det: "",
       mark: "CGPA - 9.16",
+      image: "/SSVM-Logo.png",
     },
   ];
+
+  const hackathons = [
+    {
+      title: "SnowHacks 2026",
+      role: "Backend Developer",
+      duration: "2026",
+      logo: "/snowHacks-logo.png",
+      description:
+        "Developed a solution for [problem statement] using MERN stack.",
+      tech: ["Next.js", "Node.js", "MongoDB", "Tailwind"],
+      status: "Participant",
+      certificate: "/certificates/sih.pdf",
+      github: "",
+      live: "",
+      outcome: "Won 1st place in the regional round.",
+      location: "Indore, India",
+    },
+  ];
+
+  const openSourceProjects = [
+    {
+      project: "Soroban state lens",
+      totalPRs: 3,
+      repo: "https://github.com/Vynix-Labs/Soroban-state-lens",
+      contributions: [
+        {
+          pr: "#228",
+          title: "Trap focus and support Escape-close in the mobile sidebar",
+          status: "Merged",
+        },
+        {
+          pr: "#261",
+          title: "Add active contract state to global store with tests",
+          status: "Merged",
+        },
+        {
+          pr: "#274",
+          title: "Add watchlist route with empty state and inspect navigation",
+          status: "Merged",
+        },
+      ],
+      tech: ["Node.js", "React", "TypeScript", "Tailwind CSS", "TanStack"],
+    },
+  ];
+
+  const certificates = [
+  {
+    title: "Introduction to generative AI",
+    issuer: "Simplilearn",
+    date: "2026",
+    credential: "ABC123",
+    certificate: "https://drive.google.com/file/d/1INUMfoWKX3lj2ejYmqHFmAGNvbwF_Fbc/view?usp=drive_link",
+    logo: "/simplilearn-logo.png",
+    skills: ["Gemini", "Gemini API", "REST API"],
+  },
+  {
+    title: "Java Programming",
+    issuer: "Infosys Springboard",
+    date: "2026",
+    certificate: "https://drive.google.com/file/d/1oHE-5fm4i0YNWmauh7FV0wjxsnF0xuvR/view?usp=drive_link",
+    logo: "/java.png",
+    skills: ["Java", "OOP", "Collections"],
+  },
+];
   return (
     <div>
       <div className=" mb-10">
@@ -84,67 +153,90 @@ const page = () => {
             <div className="w-56 ml-8 h-7 bg-zinc-500 "></div>
           </div>
         </div>
-        <div className="w-[100vw] md:w-[1100px] m-auto  font-bold text-[18px]">
-          <h2 className="p-4 text-[20px] text-zinc-700 dark:text-zinc-200">
+        {/* Education */}
+        <section className="w-full max-w-[1100px] mx-auto px-4 py-12">
+          <h2 className="mb-10 text-xl font-bold text-zinc-800 dark:text-zinc-100">
             Education
           </h2>
-          <div className="flex px-5">
-            <div className="">
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-4 top-0 h-full w-[2px] bg-zinc-700" />
+
+            <div className="space-y-5">
               {educations.map((edu, index) => (
-                <Education_card edu={edu} key={index} />
+                <div key={index} className="relative flex gap-6">
+                  {/* Timeline Dot */}
+                  <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900 border-2 border-green-500">
+                    <div className="h-2 w-2 rounded-full bg-green-500" />
+                  </div>
+
+                  {/* Card */}
+                  <Education_card edu={edu} />
+                </div>
               ))}
             </div>
-            <div className="w-10 h-98 mt-10 p-2.5 flex flex-col  items-center bg-red">
-              <div className="w-5 mt-5 h-5 rounded-lg bg-yellow-500"></div>
+          </div>
+        </section>
+        {/* Experience */}
+        <section className="w-full max-w-[1100px] mx-auto px-4 py-12">
+          <h2 className="p-4 text-xl font-bold text-zinc-700 dark:text-zinc-200">
+            Experience
+          </h2>
 
-              <div className="h-17 w-0 border-l-2 border-yellow-400"></div>
-              <div className="h-10 w-0 border-l-2 border-green-400"></div>
-              <div className="w-5 h-5 rounded-lg bg-green-500"></div>
-              <div className="h-20 w-0 border-l-2 border-green-500"></div>
-              <div className="w-5 h-5 rounded-lg bg-green-500"></div>
-              <div className="h-10 w-0 border-l-2 border-zinc-500"></div>
+          <div className="w-[92vw] md:w-[1000px] m-auto font-bold  bg-zinc-200 rounded-xl dark:bg-zinc-900  p-4">
+            <h2 className="p-[0px_8px_10px_8px] text-lg text-zinc-700 dark:text-zinc-200">
+              Hackathons
+            </h2>
+            <div className="">
+              <HackathonCard hackathon={hackathons[0]} />
             </div>
           </div>
-        </div>
-        <div className="w-[100vw] md:w-[1100px] m-auto font-bold text-[18px]">
-          <h2 className="p-4 text-[20px] text-zinc-700 dark:text-zinc-200">
-            Experiance
+          <div className="w-[92vw] md:w-[1000px] m-auto font-bold  bg-zinc-200 rounded-xl dark:bg-zinc-900 mt-7 p-4">
+            <h2 className="p-[0px_8px_10px_8px] text-lg text-zinc-700 dark:text-zinc-200">
+              Open-source contributions
+            </h2>
+            <div>
+              {openSourceProjects.map((project, index) => (
+                <div key={index} className="mt-4">
+                  <OpenSourceCard project={project} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        {/* Certificate */}
+        <section className="w-full max-w-[1100px] mx-auto px-4 py-12">
+          <h2 className="p-4 text-xl font-bold text-zinc-700 dark:text-zinc-200">
+            Certificates
           </h2>
-        </div>
-        <div className="w-[92vw] md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-200 rounded-xl dark:bg-zinc-900  p-2">
-          <h2 className="p-2 text-[17px] text-zinc-700 dark:text-zinc-200">
-            Hackathons
-          </h2>
-          <div className=" w-20 h-8 md:w-35 ml-8 md:h-10 rounded-lg md:rounded-2xl bg-zinc-300 dark:bg-zinc-700 "></div>
-        </div>
-        <div className="w-[92vw] md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-200 rounded-xl dark:bg-zinc-900 mt-7 p-2">
-          <h2 className="p-2 text-[17px] text-zinc-700 dark:text-zinc-200">
-            Open-source contributions
-          </h2>
-          <div className="w-20 h-8 md:w-35 ml-8 md:h-10 rounded-lg md:rounded-2xl bg-zinc-300 dark:bg-zinc-700"></div>
-        </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 px-6 gap-6">
+            {certificates.map((cert, index) => (
+              <div key={index} className="mt-4">
+              <CertificateCard cert={cert} />
+              </div>
+            ))}
+          </div>
+        </section>
+        {/* Interest */}
         <div>
           <div className="w-[100vw] md:w-[1100px] m-auto font-bold text-[18px]">
             <h2 className="p-4 text-[20px] text-zinc-700 dark:text-zinc-200">
               Interest
             </h2>
           </div>
-          <div className="w-[92vw] md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-200 rounded-xl dark:bg-zinc-900 mt-2">
+          <div className="w-[92vw] p-2 md:w-[1000px] m-auto font-bold text-[18px] bg-zinc-200 rounded-xl dark:bg-zinc-900 mt-2">
             <p className="text-[14px] md:text-[15px] font-normal p-2">
               {
-                "I’m passionate about exploring emerging technologies, especially in AI, system design, and full-stack development. I love participating in hackathons, collaborating on innovative ideas, and learning through hands-on projects."
+                "I’m passionate about exploring emerging technologies, especially in AI, system design, and full-stack development. I love participating in hackathons, collaborating on innovative ideas, and learning through hands-on projects.Outside of tech, I enjoy exploring UI/UX design, listening to music, and reading about startups and new innovations."
               }
             </p>
           </div>
         </div>
-        <div className="w-[92vw] md:w-[1100px] m-auto  mt-7">
-          <p className="text-[14px] text-zinc-500 font-medium text-center md:text-[17px]">
-            Outside of tech, I enjoy exploring UI/UX design, listening to music,
-            and reading about startups and new innovations.
-          </p>
-        </div>
+
         <div className="w-[92vw] md:w-[1100px] m-auto text-[17px] mt-7">
-          <p className="text-[14px] md:text-[17px] text-center">
+          <p className="text-[14px] md:text-[17px] text-center text-zinc-500">
             {
               "I’m always open to collaborations, new opportunities, and discussions about innovative ideas."
             }
@@ -155,19 +247,20 @@ const page = () => {
             <Account_links />
           </div>
         </div>
-        <div className="w-[100vw] md:w-[1100px] m-auto font-bold text-[18px]">
-          <h2 className="p-4 text-[20px] text-zinc-700 dark:text-zinc-200">
-            Message for me
-          </h2>
-          <div>
-            <Message_input />
+        {/* Guestbook */}
+        <section className="w-full max-w-[1100px] mx-auto px-4 py-12">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold">Guestbook</h2>
+            <p className="mt-2 text-sm text-zinc-500">
+              Leave feedback, suggestions, or just say hello 👋
+            </p>
           </div>
-          <div className="mt-5 ml-5 md:ml-12">
-            <div>
-              <Show_message />
-            </div>
+
+          <div className="grid gap-8 md:grid-cols-[380px_1fr]">
+            <Message_Input />
+            <Show_Message />
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ const Footer = () => {
 
   return (
     <div className="border-t-[1px] border-zinc-300 dark:border-zinc-700">
-      <div className="w-[90vw] md:w-[1100px] m-auto h-[300px] p-2.5 md:pt-10">
+      <div className="w-[90vw] md:w-[1100px] mx-auto  p-2.5 md:pt-10 overflow-x-hidden">
         <div className="grid grid-cols-3 md:flex gap-2.5 md:gap-20">
           <div className="col-span-3" >
             <div className="w-30 h-8 md:w-37.5 md:h-10 relative" >
@@ -60,8 +60,8 @@ const Footer = () => {
          
           <div>
             <h3 className="font-bold text-zinc-600 dark:text-zinc-400 text-sm">Contact</h3>
-            <p className="text-zinc-600 dark:text-zinc-200 text-[13px] md:text-sm ml-1.5">Aman@gmail.com</p>
-            <p className="text-zinc-600 dark:text-zinc-200 text-[13px] md:text-sm ml-1.5">+91 1234567890</p>
+            <p className="text-zinc-600 dark:text-zinc-200 text-[13px] md:text-sm ml-1.5">nagarsheetal48@gmail.com</p>
+            {/* <p className="text-zinc-600 dark:text-zinc-200 text-[13px] md:text-sm ml-1.5">+91 8889813784</p> */}
             <p className="text-zinc-600 dark:text-zinc-200 text-[13px] md:text-sm ml-1.5 ">Indore , MP</p>
           </div>
           {/* <div>

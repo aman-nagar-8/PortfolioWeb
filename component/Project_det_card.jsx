@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
@@ -6,15 +6,16 @@ import { useRouter } from "next/navigation";
 
 const Project_det_card = () => {
   const router = useRouter();
-  const project_page =()=>{
-      router.push("/project")
-  }
+  const project_page = () => {
+    router.push("/project");
+  };
   return (
-    <div className="w-[100vw] md:w-[700px] md:h-[550px] cursor-pointer my-5 ">
+    <div className="w-full max-w-[700px] max-h-[550px]  cursor-pointer mx-auto my-5 ">
       <div className="h-[50px] flex items-center justify-center">
         <h2 className="md:text-[20px] font-bold">School Mangment System</h2>
       </div>
-      <div className="md:h-[350px] mb-2.5 flex flex-wrap gap-1 md:gap-2.5 p-2.5 overflow-hidden">
+
+      <div className="md:h-[350px] mb-2.5 flex flex-wrap gap-1 md:gap-2.5 py-2.5 overflow-hidden justify-center items-center">
         <div className="w-[120px] h-[100px] md:w-[250px] md:h-[150px] relative">
           <Image
             fill
@@ -23,7 +24,7 @@ const Project_det_card = () => {
             alt="4"
           />
         </div>
-        <div className="w-[120px] h-[100px] md:w-[250px] md:h-[150px] relative" >
+        <div className="w-[120px] h-[100px] md:w-[250px] md:h-[150px] relative">
           <Image
             fill
             src={"/Project-1-all/2.png"}
@@ -31,15 +32,15 @@ const Project_det_card = () => {
             className="rounded-[5px]"
           />
         </div>
-        <div className="w-[80px] h-[100px] md:w-[150px] md:h-[150px] relative" >
+        <div className="w-[80px] h-[100px] md:w-[150px] md:h-[150px] relative">
           <Image
-           fill
+            fill
             src={"/Project-1-all/7.png"}
             alt="1"
             className="rounded-[5px]"
           />
         </div>
-        <div className="w-[120px] h-[100px] md:w-[250px] md:h-[150px] relative" >
+        <div className="w-[120px] h-[100px] md:w-[250px] md:h-[150px] relative">
           <Image
             fill
             src={"/Project-1-all/9.png"}
@@ -74,12 +75,12 @@ const Project_det_card = () => {
       </div>
       <div className="text-center h-[120px] flex flex-col justify-center gap-7 items-center">
         <p className="w-[350px] text-[14px] md:text-1xl text-zinc-500">
-          A Website for <strong className="dark:text-zinc-200">student</strong> to
-          see <strong className="dark:text-zinc-200">Attedance</strong>,{" "}
+          A Website for <strong className="dark:text-zinc-200">student</strong>{" "}
+          to see <strong className="dark:text-zinc-200">Attedance</strong>,{" "}
           <strong className="dark:text-zinc-200">Marks</strong>,{" "}
           <strong className="dark:text-zinc-200">Fee</strong>,{" "}
-          <strong className="dark:text-zinc-200">notics</strong> and other things in
-          one place
+          <strong className="dark:text-zinc-200">notics</strong> and other
+          things in one place
         </p>
         <Button
           task={project_page}

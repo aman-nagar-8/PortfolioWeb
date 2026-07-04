@@ -17,7 +17,6 @@ const add_like = ({ id, like}) => {
           body: JSON.stringify({ id, like_added }),
         });
         const new_likes = await res.json();
-        console.log(new_likes.likes);
         setlikes(new_likes.likes);
         setisClicked(true)
       };

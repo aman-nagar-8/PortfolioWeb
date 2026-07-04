@@ -19,8 +19,12 @@ const Navbar = () => {
   };
 
   const [nav_window, set_nav_window] = useState(true);
+  const [resume_window, setResume_window] = useState(false);
   function mobile_navbar_action() {
     set_nav_window(!nav_window);
+  }
+  function resume_action() {
+    setResume_window(!resume_window);
   }
   //  useEffect(() => {
   //      const handleclick = (event) => {
@@ -49,13 +53,13 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`bg-white/80 dark:bg-black/80 w-[100vw] md:w-[99vw] border-b-[1px] border-b-zinc-300 dark:border-b-zinc-700  z-50 flex md:justify-around items-center sticky top-0 ${
-          nav_window ? "" : "bg-zinc/900"
+        className={`bg-white/80 dark:bg-black/80 w-full md:w-[99vw] border-b-[1px] border-b-zinc-300 dark:border-b-zinc-700  z-50 flex justify-between md:justify-around items-center sticky top-0 ${
+          nav_window ? " " : " "
         }`}
       >
         <div
           onClick={logo_action}
-          className="cursor-pointer w-30 h-10  md:w-37.5 md:h-10  relative"
+          className="cursor-pointer w-30 h-10  md:w-40 relative"
         >
           {" "}
           <Image
@@ -85,7 +89,7 @@ const Navbar = () => {
           <div className="ml-6 mt-1 md:static">
             <div className="hidden md:flex">
               <Button
-                task={resume}
+                task={resume_action}
                 title={"Resume"}
                 back_ground_color={"dark:bg-white"}
                 btn_width={"w-[90px]"}
@@ -93,35 +97,39 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="w-[calc(100vw-140px)] relative md:hidden">
+        <div className="relative md:hidden">
           <IoReorderThreeOutline
             onClick={mobile_navbar_action}
-            className="relative left-44"
+            className="relative right-6"
             style={{ width: "38px", height: "38px" }}
           />
         </div>
       </div>
+      {/* logo action window */}
       <div
         onClick={logo_action}
         className={`${
           logo
-            ? "w-[100vw] h-[100vh] bg-black/0 backdrop-blur-sm fixed top-0 left-0 z-50"
+            ? "w-full h-full bg-black/0 backdrop-blur-sm fixed top-0 left-0 z-50"
             : ""
         }`}
       >
         {logo ? <Logo_action /> : ""}
       </div>
+      {/* mobile navbar window */}
       <div className="relative w-full">
         <div
-          className={`transition-all overflow-hidden  duration-500 ease-in-out fixed top-0 left-0 z-40 w-[100vw] bg-zinc-300/97 dark:bg-zinc-900/97 ${
-            nav_window ? " h-0 -translate-y-10 " : "h-60  translate-y-10"
+          className={`transition-all overflow-hidden  duration-500 ease-in-out fixed top-0 left-0 z-40 w-full bg-zinc-300/97 dark:bg-zinc-900/97 ${
+            nav_window
+              ? "h-0 -translate-y-10  pointer-events-none"
+              : "h-80 translate-y-10 pointer-events-all"
           }`}
         >
-          <div className="flex flex-col fixed right-5">
+          <div className="flex flex-col fixed right-6">
             {UrlLinkes.map((link, index) => (
               <div
                 key={index}
-                className={` m-auto my-1 p-1 px-5 w-[90vw] text-end `}
+                className="my-1 p-1 px-5 w-full max-w-sm text-end"
               >
                 <Link
                   href={link.link}
@@ -135,16 +143,36 @@ const Navbar = () => {
                 </Link>
               </div>
             ))}
+            <div className="pl-6 mt-1 md:static">
+              <div className="">
+                <Button
+                  task={resume_action}
+                  title={"Resume"}
+                  back_ground_color={"dark:bg-white"}
+                  btn_width={"w-[90px]"}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      {/* <div className="md:hidden w-[100vw] h-15 bg-zinc-700 fixed bottom-0 z-50 overflow-hidden h-f " >
-        <div className="flex gap-3" >
-            <FaHome className="w-7 h-7" />
-            <GoProject className="w-7 h-7" />
-        </div>
 
-      </div> */}
+      {/* resume window */}
+      {resume_window && (
+        <div
+          onClick={resume_action}
+          className={`${"w-full h-full bg-black/0 backdrop-blur-sm fixed top-0 left-0 z-50 flex justify-center items-center"}`}
+        >
+          <div className="w-300 h-700 md:w-[500px] md:h-[90vh] relativ bg-red-400">
+            {/* <Image src={"https://drive.google.com/file/d/1mYLCY9WuDDZCQy8obUuNtogjRwM5mZ4W/view?usp=drive_link"} alt="Resume" layout="fill" objectFit="cover" /> */}
+            <iframe
+              src="/resume.pdf" // Optional: hash parameter hides the top toolbar
+              title="PDF Viewer"
+              className="w-full h-full border-none"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 };
